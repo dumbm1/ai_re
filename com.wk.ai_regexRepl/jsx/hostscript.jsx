@@ -42,5 +42,5 @@ function repl (regStr, replacer) {
     }
   }
 
-  return result + ': ' + count;
+  return count;
 }
