@@ -6,9 +6,7 @@
     <link rel="stylesheet" href="css/topcoat-desktop-dark.min.css"/>
     <link id="hostStyle" rel="stylesheet" href="css/styles.css"/>
 
-    <title>console</title>
-    <style type="text/css">
-    </style>
+    <title>regexp-replace</title>
 </head>
 
 <body class="hostElt main-pan">
@@ -20,29 +18,10 @@
             <textarea class="hostTextarea" id="fld_val" autofocus></textarea>
         </div>
         <div class="row float-left">
-            <input id="btn_eval_js" class="hostButton btns" type="button" value="Chrome" title="ctrl+h"/>
-            <input id="btn_eval_jsx" class="hostButton btns" type="button" value="AI" title="ctrl+i"/>
-            <input id="btn_clear" class="hostButton btns" type="button" value="Clear" title="ctrl+d"/>
-        </div>
-        <div class="row float-left">
-            <select class="hostTextarea float-left" name="keywords" id="lst_keywords">
-                <option>documents</option>
-                <option>activeDocument</option>
-                <option>layers</option>
-                <option>activeLayer</option>
-                <option>textFrames</option>
-                <option>textRanges</option>
-                <option>pathItems</option>
-                <option>pageItems</option>
-                <option>selection</option>
-                <option>$.writeln</option>
-                <option>console.log</option>
-                <option>redraw();</option>
-            </select>
-            <input id="btn_repeat" class="hostButton btns" type="button" value="Repeat"/>
+            <input id="btn_repl" class="hostButton btns" type="button" value="Replace"/>
+            <input id="btn_clear" class="hostButton btns" type="button" value="Clear"/>
         </div>
         <div class="row float-right">
-            <input id="btn_saveCode" class="hostButton btns" type="button" value="Save Code"/>
             <input id="btn_refrash" class="hostButton btns" type="button" value="Refrash"/>
             <input id="btn_killCEP" class="hostButton btns" type="button" value="Kill CEP"/>
         </div>
@@ -50,16 +29,14 @@
             <textarea class="hostTextarea" id="fld_return"></textarea>
         </div>
 
-
     </div>
 </div>
 
 <script src="js/libs/CSInterface.js"></script>
-<script src="js/libs/jquery-2.0.2.min.js"></script>
+<script src="js/libs/jquery-3.1.0.min.js"></script>
 
 <script src="js/themeManager.js"></script>
 <script src="js/main.js"></script>
-
 
 </body>
 </html>
