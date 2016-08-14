@@ -18,12 +18,15 @@ function killCEP () {
  *
  * function needs one text frame selected by Selection Tool,
  * Direct Selection Tool or Group Selection Tool
+ *
+ * @param {String} regStr - regular expression string
+ * @param {String} replacer - replacer string
  * */
 function repl (regStr, replacer) {
-  var res = '';
+  var count = 0;
   if (selection.length != 1) {
     alert ('Select the text frame by Selection Tool, Direct Selection Tool or Group Selection Tool');
-    return;
+    return -1;
   }
   var txtFrame = selection[0],
       reg      = new RegExp (regStr, 'gi'),
@@ -33,10 +36,11 @@ function repl (regStr, replacer) {
     try {
       var aCon      = txtFrame.characters[result.index];
       aCon.length   = result[0].length;
-      aCon.contents = replacer;
+      aCon.contents = aCon.contents.replace (reg, replacer);
+      count++;
     } catch (e) {
     }
   }
 
-  return res;
+  return result + ': ' + count;
 }
