@@ -17,10 +17,11 @@
     loadJSX ("json2.js");
 
     $ ("#btn_repl").click (function () {
-      var elem        = document.getElementById ("fld_val");
-      var elem_return = document.getElementById ('fld_return');
-      repl (elem.value, elem_return);
-      elem.focus ();
+      var elem_regStr   = document.getElementById ("fld_regStr");
+      var elem_replacer = document.getElementById ("fld_replacer");
+      var elem_return   = document.getElementById ('fld_return');
+      repl (elem_regStr.value, elem_replacer.value, elem_return);
+      elem_regStr.focus ();
     });
     $ ("#btn_clear").click (function () {
       $ ("#fld_return").val ('');
@@ -41,17 +42,20 @@
   }
 
   /**
-   * Eval javascript string on chrome browser
+   * Replace all matches in the selected text frame
    *
-   * @param {String} str - the javascript code string
+   * @param {String} regStr - regular expression string
+   * @param {String} replacer - replacer string
    * */
-  function repl (str, fld_return) {
-    csInterface.evalScript ('evalStr(' + JSON.stringify (str) + ')', function (res) {
-      if (!fld_return.value) {
-        fld_return.value = res;
-      } else {
-        fld_return.value += '\n' + res;
-      }
-    });
+  function repl (regStr, replacer, fld_return) {
+    csInterface.evalScript (
+      'repl(' + JSON.stringify (regStr) + ',' + JSON.stringify (replacer) + ')', function (res) {
+
+        if (!fld_return.value) {
+          fld_return.value = res;
+        } else {
+          fld_return.value += '\n' + res;
+        }
+      });
   }
 } ());

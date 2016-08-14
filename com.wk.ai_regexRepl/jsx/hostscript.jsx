@@ -5,32 +5,38 @@ function killCEP () {
   /**
    * make bat-file that kill all system processes CEPHTMLEngine.exe
    */
-  _execFile (
-    Folder.temp.absoluteURI + '/' + 'taskkil.bat',
-    'taskkill /IM CEPHTMLEngine.exe /f'
-  );
-  /**
-   * make new file by full path, write to disk with some file contenr, execute file
-   *
-   * @param {String} filePath - FULL path (include file-extension)
-   * @param {String} fileContent - content to new file
-   */
-  function _execFile (filePath, fileContent) {
-    var f = new File (filePath);
-    f.open ('e');
-    f.write (fileContent);
-    f.close ();
-    f.execute ();
-  }
+  var f = new File (Folder.temp.absoluteURI + '/' + 'taskkil.bat');
+  f.open ('e');
+  f.write ('taskkill /IM CEPHTMLEngine.exe /f');
+  f.close ();
+  f.execute ();
 }
 
-function evalStr (str) {
+/**
+ * change Contents Of Word Or String Remain Formatting
+ * autor (c)pixxxel schubser
+ *
+ * function needs one text frame selected by Selection Tool,
+ * Direct Selection Tool or Group Selection Tool
+ * */
+function repl (regStr, replacer) {
   var res = '';
-  
-  try {
-    res = eval (/*JSON.parse*/ (str));
-  } catch (e) {
-    res = e.message;
+  if (selection.length != 1) {
+    alert ('Select the text frame by Selection Tool, Direct Selection Tool or Group Selection Tool');
+    return;
   }
+  var txtFrame = selection[0],
+      reg      = new RegExp (regStr, 'gi'),
+      result;
+
+  while (result = reg.exec (txtFrame.contents)) {
+    try {
+      var aCon      = txtFrame.characters[result.index];
+      aCon.length   = result[0].length;
+      aCon.contents = replacer;
+    } catch (e) {
+    }
+  }
+
   return res;
 }
