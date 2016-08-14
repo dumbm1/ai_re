@@ -16,37 +16,14 @@
     themeManager.init ();
     loadJSX ("json2.js");
 
-    $ ("#btn_eval_js").click (function () {
+    $ ("#btn_repl").click (function () {
       var elem        = document.getElementById ("fld_val");
       var elem_return = document.getElementById ('fld_return');
-      if (!elem_return.value) {
-        elem_return.value = evalInChrome (elem.value);
-      } else {
-        elem_return.value += '\n' + evalInChrome (elem.value);
-      }
-      elem.focus ();
-    });
-    $ ("#btn_eval_jsx").click (function () {
-      var elem        = document.getElementById ("fld_val");
-      var elem_return = document.getElementById ('fld_return');
-      evalInAi (elem.value, elem_return);
+      repl (elem.value, elem_return);
       elem.focus ();
     });
     $ ("#btn_clear").click (function () {
       $ ("#fld_return").val ('');
-    });
-    // todo: refactor this code to jQuery syntax
-    document.getElementById ('lst_keywords').addEventListener ('change', function () {
-      var elem = document.getElementById ('fld_val');
-      insertAtCursor (elem, this.value);
-    });
-    $ ("#btn_repeat").click (function () {
-      var elem = document.getElementById ("fld_val");
-      var val  = document.getElementById ('lst_keywords').value;
-      insertAtCursor (elem, val);
-    });
-    $ ("#btn_saveCode").click (function () {
-      
     });
 
     $ ("#btn_refrash").click (reloadPanel);
@@ -67,46 +44,14 @@
    * Eval javascript string on chrome browser
    *
    * @param {String} str - the javascript code string
-   * @return {String} res - the evaluation result or error message
    * */
-  function evalInChrome (str) {
-    var res = '';
-    try {
-      res = eval (str);
-    } catch (e) {
-      res = e/*.message + ', ' + e.line*/;
-    }
-    return '[chrome]: ' + res;
-  }
-
-  /**
-   * Eval javascript string on chrome browser
-   *
-   * @param {String} str - the javascript code string
-   * */
-  function evalInAi (str, fld_return) {
+  function repl (str, fld_return) {
     csInterface.evalScript ('evalStr(' + JSON.stringify (str) + ')', function (res) {
       if (!fld_return.value) {
-        fld_return.value = '[ai]: ' + res;
+        fld_return.value = res;
       } else {
-        fld_return.value += '\n' + '[ai]: ' + res;
+        fld_return.value += '\n' + res;
       }
     });
   }
-
-  function insertAtCursor (myField, myValue) {
-    if (document.selection) {
-      myField.focus ();
-      document.selection.createRange ().text = myValue;
-    }
-    else if (myField.selectionStart || myField.selectionStart == '0') {
-      var position           = myField.selectionStart;
-      myField.value          = myField.value.substring (0, myField.selectionStart) + myValue + myField.value.substring (myField.selectionEnd, myField.value.length);
-      myField.selectionStart = myField.selectionEnd = position + myValue.length;
-    } else {
-      myField.value += myValue;
-    }
-    myField.focus ();
-  }
-
 } ());
