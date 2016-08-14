@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ExtensionManifest
         Version="5.0"
-        ExtensionBundleId="com.wk.console_002"
-        ExtensionBundleVersion="0.0.2"
-        ExtensionBundleName="console_002"
+        ExtensionBundleId="com.wk.ai_regexRepl"
+        ExtensionBundleVersion="0.0.1"
+        ExtensionBundleName="ai_regexRepl"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Author>
         <![CDATA[Marat Shagiev]]>
@@ -15,10 +15,14 @@
         <![CDATA[Legal stuff...]]>
     </Legal>
     <Abstract href="#">
-        <![CDATA[The most super-simple console that based on the js function eval]]>
+        <![CDATA[
+				Replace text with all power of javascript regular expressions!
+				Keep text formatting.
+				Addition to standart Illustrator Find and Replace dialog.
+				]]>
     </Abstract>
     <ExtensionList>
-        <Extension Id="com.wk.console_002" Version="0.0.2"/>
+        <Extension Id="com.wk.ai_regexRepl" Version="0.0.1"/>
     </ExtensionList>
     <ExecutionEnvironment>
         <HostList>
@@ -32,7 +36,7 @@
         </RequiredRuntimeList>
     </ExecutionEnvironment>
     <DispatchInfoList>
-        <Extension Id="com.wk.console_002">
+        <Extension Id="com.wk.ai_regexRepl">
             <DispatchInfo>
                 <Resources>
                     <MainPath>./index.html</MainPath>
@@ -43,7 +47,7 @@
                 </Lifecycle>
                 <UI>
                     <Type>Panel</Type>
-                    <Menu>console v0.0.2</Menu>
+                    <Menu>ai_regexRepl v0.0.1</Menu>
                     <Geometry>
                         <Size>
                             <Height>280</Height>
