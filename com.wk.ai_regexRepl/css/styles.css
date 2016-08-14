@@ -1,0 +1,145 @@
+/*Your styles*/
+
+body {
+  margin: 10px;
+}
+
+#content {
+  margin-right:   auto;
+  margin-left:    auto;
+  vertical-align: middle;
+  width:          100%;
+}
+
+#btn_calc, #btn_refrash {
+  /*width: 100%;*/
+}
+
+/*
+Those classes will be edited at runtime with values specified
+by the settings of the CC application
+*/
+.hostFontColor {
+}
+
+.hostFontFamily {
+}
+
+.hostFontSize {
+}
+
+/*font family, color and size*/
+.hostFont {
+}
+
+/*background color*/
+.hostBgd {
+}
+
+/*lighter background color*/
+.hostBgdLight {
+}
+
+/*darker background color*/
+.hostBgdDark {
+}
+
+/*background color and font*/
+.hostElt {
+}
+
+.hostButton {
+  border:         1px solid;
+  border-radius:  2px;
+  height:         20px;
+  vertical-align: bottom;
+  font-family:    inherit;
+  color:          inherit;
+  font-size:      inherit;
+}
+
+/**
+My styles
+*/
+
+textarea {
+  /*resize     : true;*/
+  overflow-y: scroll;
+  height:     250px;
+}
+
+input {
+  box-sizing: border-box;
+  display:    inline-block;
+}
+
+input[type=text] {
+  border: 1px solid rgba(0, 0, 0, .4);
+  height: 45px;
+  width:  100%;
+}
+
+.main-pan {
+  margin:  auto;
+  padding: 0;
+}
+
+.block {
+  width:   100%;
+  margin:  2px auto;
+  display: block;
+}
+
+.row {
+  display: block;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+#fld_return, #fld_val {
+  box-sizing: border-box;
+  width:      100%;
+  height:     165px;
+  padding:    0;
+  /*margin      : 5px 0 0;*/
+  /*font-weight : bold;*/
+  font-size:  1.5em;
+}
+
+#fld_return {
+  height:    65px;
+  font-size: 1.1em;
+}
+
+#btn_eval_js, #btn_eval_jsx, #btn_clear {
+  box-sizing: border-box;
+  /*width:      45px;*/
+}
+
+#btn_clear {
+  /*margin-left:  2px;*/
+  margin-right: 3px;
+}
+
+#lst_keywords {
+  height: 20px;
+}
+
+#btn_refrash {
+  box-sizing: border-box;
+  /*width:      45px;*/
+  overflow-x: hidden;
+}
+
+#btn_killCEP {
+  box-sizing: border-box;
+  /*width:      45px;*/
+  overflow-x: hidden;
+  /*margin-right: 20px;*/
+}

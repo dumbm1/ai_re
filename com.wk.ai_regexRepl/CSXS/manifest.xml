@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionManifest
+        Version="5.0"
+        ExtensionBundleId="com.wk.console_002"
+        ExtensionBundleVersion="0.0.2"
+        ExtensionBundleName="console_002"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Author>
+        <![CDATA[Marat Shagiev]]>
+    </Author>
+    <Contact mailto="m_js@bk.ru">
+        <![CDATA[m_js@bk.ru]]>
+    </Contact>
+    <Legal>
+        <![CDATA[Legal stuff...]]>
+    </Legal>
+    <Abstract href="#">
+        <![CDATA[The most super-simple console that based on the js function eval]]>
+    </Abstract>
+    <ExtensionList>
+        <Extension Id="com.wk.console_002" Version="0.0.2"/>
+    </ExtensionList>
+    <ExecutionEnvironment>
+        <HostList>
+            <Host Name="ILST" Version="17.0"/>
+        </HostList>
+        <LocaleList>
+            <Locale Code="All"/>
+        </LocaleList>
+        <RequiredRuntimeList>
+            <RequiredRuntime Name="CSXS" Version="5.0"/>
+        </RequiredRuntimeList>
+    </ExecutionEnvironment>
+    <DispatchInfoList>
+        <Extension Id="com.wk.console_002">
+            <DispatchInfo>
+                <Resources>
+                    <MainPath>./index.html</MainPath>
+                    <ScriptPath>./jsx/hostscript.jsx</ScriptPath>
+                </Resources>
+                <Lifecycle>
+                    <AutoVisible>true</AutoVisible>
+                </Lifecycle>
+                <UI>
+                    <Type>Panel</Type>
+                    <Menu>console v0.0.2</Menu>
+                    <Geometry>
+                        <Size>
+                            <Height>280</Height>
+                            <Width>250</Width>
+                        </Size>
+                       <!-- <MinSize>
+                            <Height>100</Height>
+                            <Width>190</Width>
+                        </MinSize>
+                        <MaxSize>
+                            <Height>100</Height>
+                            <Width>240</Width>
+                        </MaxSize>-->
+                    </Geometry>
+                    <Icons>
+                        <Icon Type="Normal">./icons/iconNormal.png</Icon>
+                        <Icon Type="RollOver">./icons/iconRollover.png</Icon>
+                        <Icon Type="Disabled">./icons/iconDisabled.png</Icon>
+                        <Icon Type="DarkNormal">./icons/iconDarkNormal.png</Icon>
+                        <Icon Type="DarkRollOver">./icons/iconDarkRollover.png</Icon>
+                    </Icons>
+                </UI>
+            </DispatchInfo>
+        </Extension>
+    </DispatchInfoList>
+</ExtensionManifest>
