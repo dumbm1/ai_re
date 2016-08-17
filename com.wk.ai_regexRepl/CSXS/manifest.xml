@@ -2,7 +2,7 @@
 <ExtensionManifest
         Version="5.0"
         ExtensionBundleId="com.wk.ai_regexRepl"
-        ExtensionBundleVersion="0.0.1"
+        ExtensionBundleVersion="0.0.2"
         ExtensionBundleName="ai_regexRepl"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Author>
@@ -22,7 +22,7 @@
 				]]>
     </Abstract>
     <ExtensionList>
-        <Extension Id="com.wk.ai_regexRepl" Version="0.0.1"/>
+        <Extension Id="com.wk.ai_regexRepl" Version="0.0.2"/>
     </ExtensionList>
     <ExecutionEnvironment>
         <HostList>
@@ -47,7 +47,7 @@
                 </Lifecycle>
                 <UI>
                     <Type>Panel</Type>
-                    <Menu>ai_regexRepl v0.0.1</Menu>
+                    <Menu>ai_regexRepl v0.0.2</Menu>
                     <Geometry>
                         <Size>
                             <Height>280</Height>

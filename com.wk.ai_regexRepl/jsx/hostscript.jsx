@@ -1,17 +1,6 @@
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, regexp: true, indent: 4, maxerr: 50 */
 /*global $, Folder*/
 
-function killCEP () {
-  /**
-   * make bat-file that kill all system processes CEPHTMLEngine.exe
-   */
-  var f = new File (Folder.temp.absoluteURI + '/' + 'taskkil.bat');
-  f.open ('e');
-  f.write ('taskkill /IM CEPHTMLEngine.exe /f');
-  f.close ();
-  f.execute ();
-}
-
 /**
  * change Contents Of Word Or String Remain Formatting
  * autor (c)pixxxel schubser

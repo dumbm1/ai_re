@@ -29,7 +29,7 @@
 
     $ ("#btn_refrash").click (reloadPanel);
     $ ("#btn_killCEP").click (function () {
-      csInterface.evalScript ("killCEP()");
+      csInterface.closeExtension();
     });
 
   }
