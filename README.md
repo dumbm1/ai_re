@@ -1,6 +1,9 @@
 Html/css/js extension panel for Adobe Illustrator CC and higher
+
 Extended origin Illustrator dialog Search and Replace
+
 Search and replace by regular expression string
+
 Keep formatting of the original text
 
 
@@ -18,4 +21,4 @@ How to use:
 
 5. The last result of the work is displayed in the console at the bottom of the panel.
  
-All special characters such as "*" or "?" must be escaped: \* \? \+
+All special characters such as "\*" or "?" must be escaped: \\* \? \\+
