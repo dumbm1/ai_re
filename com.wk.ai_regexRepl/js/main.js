@@ -29,7 +29,7 @@
 
     $ ("#btn_refrash").click (reloadPanel);
     $ ("#btn_killCEP").click (function () {
-      csInterface.closeExtension();
+      csInterface.closeExtension ();
     });
 
   }
@@ -50,12 +50,9 @@
   function repl (regStr, replacer, fld_return) {
     csInterface.evalScript (
       'repl(' + JSON.stringify (regStr) + ',' + JSON.stringify (replacer) + ')', function (res) {
-
-        if (!fld_return.value) {
-          fld_return.value = res;
-        } else {
-          fld_return.value += '\n' + res;
-        }
+        var pref = '';
+        if (!res.match (/err/gmi)) pref = 'replaces: ';
+        fld_return.value = pref + res;
       });
   }
 } ());

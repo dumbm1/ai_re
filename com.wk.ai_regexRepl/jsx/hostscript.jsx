@@ -1,6 +1,6 @@
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, regexp: true, indent: 4, maxerr: 50 */
 /*global $, Folder*/
-
+// alert ('hi');
 /**
  * change Contents Of Word Or String Remain Formatting
  * autor (c)pixxxel schubser
@@ -12,6 +12,11 @@
  * @param {String} replacer - replacer string
  * */
 function repl (regStr, replacer) {
+  if (!regStr.length) {
+    alert ('No regexp input value');
+    return -1;
+  }
+  replacer = replacer || '';
 
   var count = 0;
   if (selection.length != 1) {
@@ -19,25 +24,26 @@ function repl (regStr, replacer) {
     return -1;
   }
   var txtFrame = selection[0],
-      reg      = new RegExp (regStr, 'gmi'),
-      result;
-  var resIndex = 0;
+      resIndex = 0,
+      result,
+      reg;
+
+  try {
+    reg = new RegExp (regStr, 'gmi')
+  } catch (e) {
+    return e.message + ', line: ' + e.line;
+  }
 
   while (result = reg.exec (txtFrame.contents)) {
-    // when a regular expression pattern is a sign begin or end of the string (anchors),
-    // the loop becomes infinite maybe because in this case the result[0].length == 0
-    if (result[0].length == 0) {
-      reg.lastIndex += 2;
-    }
     try {
       var aCon      = txtFrame.characters[result.index];
       aCon.length   = result[0].length;
       aCon.contents = aCon.contents.replace (reg, replacer);
-      // aCon.contents = replacer;
+      // !!! when the match.length is different with the replacer.length the loop becomes infinite
+      reg.lastIndex += replacer.length + 1;
       count++;
     } catch (e) {
     }
   }
-
   return count;
 }

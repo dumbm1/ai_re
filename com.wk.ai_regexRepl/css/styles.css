@@ -20,9 +20,9 @@ body {
 }
 
 textarea {
-  overflow-y: scroll;
-  width:       100%;
-  resize: none;
+  overflow-y: hidden;
+  width:      100%;
+  resize:     none;
 }
 
 input {
@@ -31,9 +31,12 @@ input {
 }
 
 input[type=text] {
-  border: 1px solid rgba(0, 0, 0, .4);
-  height: 20px;
-  width:  100%;
+  border:        1px solid rgba(0, 0, 0, .4);
+  border-radius: 2px;
+  height:        25px;
+  width:         100%;
+  font-size:     1.2em;
+  margin:        5px 0;
 }
 
 .main-pan {
@@ -60,10 +63,11 @@ input[type=text] {
 }
 
 #fld_return {
-  box-sizing: border-box;
-  height:     65px;
-  padding:    0;
-  font-size:  1.1em;
+  box-sizing:  border-box;
+  height:      25px;
+  padding:     0;
+  font-size:   1.2em;
+  font-weight: bold;
 }
 
 #btn_repl, #btn_clear {
