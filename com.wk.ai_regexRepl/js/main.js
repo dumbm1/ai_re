@@ -6,32 +6,22 @@
 
   var csInterface = new CSInterface ();
 
-  function loadJSX (fileName) {
-    var extensionRoot = csInterface.getSystemPath (SystemPath.EXTENSION) + "/jsx/";
-    csInterface.evalScript ('$.evalFile("' + extensionRoot + fileName + '")');
-  }
-
   function init () {
-
     themeManager.init ();
     loadJSX ("json2.js");
 
-    $ ("#btn_repl").click (function () {
-      var elem_regStr   = document.getElementById ("fld_regStr");
-      var elem_replacer = document.getElementById ("fld_replacer");
-      var elem_return   = document.getElementById ('fld_return');
-      repl (elem_regStr.value, elem_replacer.value, elem_return);
-      elem_regStr.focus ();
-    });
-    $ ("#btn_clear").click (function () {
-      $ ("#fld_return").val ('');
-    });
-
-    $ ("#btn_refrash").click (reloadPanel);
-    $ ("#btn_killCEP").click (function () {
-      csInterface.closeExtension ();
-    });
-
+    $ ("#btn_repl").click (
+      alert ('Replace')
+      /*function () {
+       var elem_regStr   = document.getElementById ("fld_regStr");
+       var elem_replacer = document.getElementById ("fld_replacer");
+       var elem_return   = document.getElementById ('fld_return');
+       repl (elem_regStr.value, elem_replacer.value, elem_return);
+       elem_regStr.focus ()
+       ;}*/
+    );
+    $ ("#btn_refrash").click (alert ('Refrash'));
+    $ ("#btn_killCEP").click (alert ('Reboot'));
   }
 
   init ();
@@ -39,6 +29,11 @@
   // Reloads extension panel
   function reloadPanel () {
     location.reload ();
+  }
+
+  function loadJSX (fileName) {
+    var extensionRoot = csInterface.getSystemPath (SystemPath.EXTENSION) + "/jsx/";
+    csInterface.evalScript ('$.evalFile("' + extensionRoot + fileName + '")');
   }
 
   /**
@@ -55,4 +50,5 @@
         fld_return.value = pref + res;
       });
   }
+
 } ());

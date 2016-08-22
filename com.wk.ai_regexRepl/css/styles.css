@@ -1,94 +1,75 @@
 body {
-  margin: 10px;
 }
 
 #content {
-  margin-right:   auto;
-  margin-left:    auto;
-  vertical-align: middle;
-  width:          100%;
+  margin-right     : auto;
+  margin-left      : auto;
+  vertical-align   : middle;
+  width            : 100%;
+  background-color : #ffff99;
 }
 
 .hostButton {
-  border:         1px solid;
-  border-radius:  2px;
-  height:         20px;
-  vertical-align: bottom;
-  font-family:    inherit;
-  color:          inherit;
-  font-size:      inherit;
+  border         : 1px solid;
+  height         : 20px;
+  vertical-align : bottom;
+  font-family    : inherit;
+  color          : inherit;
+  font-size      : inherit;
+  border-radius  : 5px;
 }
 
 textarea {
-  overflow-y: hidden;
-  width:      100%;
-  resize:     none;
+  overflow-y : hidden;
+  width      : 100%;
+  resize     : none;
 }
 
 input {
-  box-sizing: border-box;
-  display:    inline-block;
+  box-sizing : border-box;
+  display    : inline-block;
 }
 
 input[type=text] {
-  border:        1px solid rgba(0, 0, 0, .4);
-  border-radius: 2px;
-  height:        25px;
-  width:         100%;
-  font-size:     1.2em;
-  margin:        5px 0;
+  border        : 1px solid rgba(0, 0, 0, .4);
+  border-radius : 5px;
+  height        : 25px;
+  width         : 100%;
+  font-size     : 1.2em;
 }
 
 .main-pan {
-  margin:  auto;
-  padding: 0;
+  margin           : auto;
+  padding          : 0;
+  background-color : #4ca1e4;
 }
 
 .block {
-  width:   100%;
-  margin:  2px auto;
-  display: block;
+  width            : 100%;
+  margin           : 0 auto;
+  display          : block;
+  background-color : #ec514e;
 }
 
 .row {
-  display: block;
+  display          : block;
+  background-color : chartreuse;
+  /*margin           : 10px;*/
 }
 
 .float-left {
-  float: left;
+  float : left;
 }
 
 .float-right {
-  float: right;
+  float : right;
 }
 
-#fld_return {
-  box-sizing:  border-box;
-  height:      25px;
-  padding:     0;
-  font-size:   1.2em;
-  font-weight: bold;
+#fld_return, #fld_regStr, #fld_replacer {
 }
 
-#btn_repl, #btn_clear {
-  box-sizing: border-box;
-  /*width:      45px;*/
-}
-
-#btn_clear {
-  /*margin-left:  2px;*/
-  margin-right: 3px;
-}
-
-#btn_refrash {
-  box-sizing: border-box;
-  /*width:      45px;*/
-  overflow-x: hidden;
-}
-
-#btn_killCEP {
-  box-sizing: border-box;
-  /*width:      45px;*/
-  overflow-x: hidden;
-  /*margin-right: 20px;*/
+#btn_repl, #btn_refrash, #btn_killCEP {
+  box-sizing : border-box;
+  overflow-x : hidden;
+  margin     : 10px 0;
 }

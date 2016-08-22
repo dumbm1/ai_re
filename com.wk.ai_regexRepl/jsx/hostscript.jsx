@@ -1,6 +1,6 @@
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, regexp: true, indent: 4, maxerr: 50 */
 /*global $, Folder*/
-// alert ('hi');
+ alert ('hi');
 /**
  * change Contents Of Word Or String Remain Formatting
  * autor (c)pixxxel schubser

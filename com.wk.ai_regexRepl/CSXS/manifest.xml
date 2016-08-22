@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ExtensionManifest
-        Version="5.0"
+        Version="4.0"
         ExtensionBundleId="com.wk.ai_regexRepl"
         ExtensionBundleVersion="0.0.3"
         ExtensionBundleName="ai_regexRepl"
@@ -32,7 +32,7 @@
             <Locale Code="All"/>
         </LocaleList>
         <RequiredRuntimeList>
-            <RequiredRuntime Name="CSXS" Version="5.0"/>
+            <RequiredRuntime Name="CSXS" Version="4.0"/>
         </RequiredRuntimeList>
     </ExecutionEnvironment>
     <DispatchInfoList>
