@@ -87,11 +87,9 @@
    * */
   function evalInAi (str, fld_return) {
     csInterface.evalScript ('evalStr(' + JSON.stringify (str) + ')', function (res) {
-      if (!fld_return.value) {
-        fld_return.value = '[ai]: ' + res;
-      } else {
-        fld_return.value += '\n' + '[ai]: ' + res;
-      }
+      var prefStr = 'Number of replaces: ';
+
+      fld_return.value = prefStr + res;
     });
   }
 

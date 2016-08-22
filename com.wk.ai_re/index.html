@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/topcoat-desktop-dark.min.css"/>
     <link id="hostStyle" rel="stylesheet" href="css/styles.css"/>
 
-    <title>re</title>
+    <title>ai_re</title>
     <style type="text/css">
     </style>
 </head>
@@ -17,7 +17,7 @@
 
     <div class="block">
         <div class="row">
-            <textarea class="hostTextarea" id="fld_val" autofocus></textarea>
+            <input  type="text" class="hostTextarea" id="fld_val" autofocus>
         </div>
         <div class="row float-left">
             <input id="btn_eval_js" class="hostButton btns" type="button" value="Chrome" title="ctrl+h"/>
@@ -26,28 +26,32 @@
         </div>
         <div class="row float-left">
             <select class="hostTextarea float-left" name="keywords" id="lst_keywords">
-                <option>documents</option>
-                <option>activeDocument</option>
-                <option>layers</option>
-                <option>activeLayer</option>
-                <option>textFrames</option>
-                <option>textRanges</option>
-                <option>pathItems</option>
-                <option>pageItems</option>
-                <option>selection</option>
-                <option>$.writeln</option>
-                <option>console.log</option>
-                <option>redraw();</option>
+                <option>[]</option>
+                <option>()</option>
+                <option>^</option>
+                <option>$</option>
+                <option>\s</option>
+                <option>$1</option>
+                <option>$2</option>
+                <option>$3</option>
+                <option>$4</option>
+                <option>$5</option>
+                <option>^$</option>
+                <option>\*</option>
+                <option>\d</option>
+                <option>[a-zA-Z]</option>
+                <option>[^a-zA-Z]</option>
+                <option>[а-яА-Я]</option>
+                <option>[^а-яА-Я]</option>
             </select>
             <input id="btn_repeat" class="hostButton btns" type="button" value="Repeat"/>
         </div>
         <div class="row float-right">
-            <input id="btn_saveCode" class="hostButton btns" type="button" value="Save Code"/>
             <input id="btn_refrash" class="hostButton btns" type="button" value="Refrash"/>
             <input id="btn_killCEP" class="hostButton btns" type="button" value="Kill CEP"/>
         </div>
         <div class="row">
-            <textarea class="hostTextarea" id="fld_return"></textarea>
+            <input class="hostTextarea" id="fld_return" disabled>
         </div>
 
 

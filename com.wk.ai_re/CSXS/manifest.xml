@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ExtensionManifest
-        Version="5.0"
-        ExtensionBundleId="com.wk.re"
+        Version="4.0"
+        ExtensionBundleId="com.wk.ai_re"
         ExtensionBundleVersion="0.0.4"
-        ExtensionBundleName="re"
+        ExtensionBundleName="ai_re"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Author>
-        <![CDATA[Marat Shagiev]]>
+        <![CDATA[(c)MaratShagiev]]>
     </Author>
     <Contact mailto="m_js@bk.ru">
         <![CDATA[m_js@bk.ru]]>
@@ -15,10 +15,10 @@
         <![CDATA[Legal stuff...]]>
     </Legal>
     <Abstract href="#">
-        <![CDATA[]]>
+        <![CDATA[Replace text by force of javascript regular expressions]]>
     </Abstract>
     <ExtensionList>
-        <Extension Id="com.wk.re" Version="0.0.4"/>
+        <Extension Id="com.wk.ai_re" Version="0.0.4"/>
     </ExtensionList>
     <ExecutionEnvironment>
         <HostList>
@@ -28,11 +28,11 @@
             <Locale Code="All"/>
         </LocaleList>
         <RequiredRuntimeList>
-            <RequiredRuntime Name="CSXS" Version="5.0"/>
+            <RequiredRuntime Name="CSXS" Version="4.0"/>
         </RequiredRuntimeList>
     </ExecutionEnvironment>
     <DispatchInfoList>
-        <Extension Id="com.wk.re">
+        <Extension Id="com.wk.ai_re">
             <DispatchInfo>
                 <Resources>
                     <MainPath>./index.html</MainPath>
@@ -43,7 +43,7 @@
                 </Lifecycle>
                 <UI>
                     <Type>Panel</Type>
-                    <Menu>console v0.0.4</Menu>
+                    <Menu>ai_re v0.0.4</Menu>
                     <Geometry>
                         <Size>
                             <Height>280</Height>
