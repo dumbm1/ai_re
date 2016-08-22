@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ExtensionManifest
-        Version="4.0"
-        ExtensionBundleId="com.wk.ai_regexRepl"
-        ExtensionBundleVersion="0.0.3"
-        ExtensionBundleName="ai_regexRepl"
+        Version="5.0"
+        ExtensionBundleId="com.wk.re"
+        ExtensionBundleVersion="0.0.4"
+        ExtensionBundleName="re"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Author>
         <![CDATA[Marat Shagiev]]>
@@ -15,14 +15,10 @@
         <![CDATA[Legal stuff...]]>
     </Legal>
     <Abstract href="#">
-        <![CDATA[
-				Replace text with all power of javascript regular expressions!
-				Keep text formatting.
-				Addition to standart Illustrator Find and Replace dialog.
-				]]>
+        <![CDATA[]]>
     </Abstract>
     <ExtensionList>
-        <Extension Id="com.wk.ai_regexRepl" Version="0.0.3"/>
+        <Extension Id="com.wk.re" Version="0.0.4"/>
     </ExtensionList>
     <ExecutionEnvironment>
         <HostList>
@@ -32,11 +28,11 @@
             <Locale Code="All"/>
         </LocaleList>
         <RequiredRuntimeList>
-            <RequiredRuntime Name="CSXS" Version="4.0"/>
+            <RequiredRuntime Name="CSXS" Version="5.0"/>
         </RequiredRuntimeList>
     </ExecutionEnvironment>
     <DispatchInfoList>
-        <Extension Id="com.wk.ai_regexRepl">
+        <Extension Id="com.wk.re">
             <DispatchInfo>
                 <Resources>
                     <MainPath>./index.html</MainPath>
@@ -47,20 +43,20 @@
                 </Lifecycle>
                 <UI>
                     <Type>Panel</Type>
-                    <Menu>ai_regexRepl v0.0.3</Menu>
+                    <Menu>console v0.0.4</Menu>
                     <Geometry>
                         <Size>
-                            <Height>190</Height>
-                            <Width>350</Width>
+                            <Height>280</Height>
+                            <Width>250</Width>
                         </Size>
-                       <!-- <MinSize>
-                            <Height>100</Height>
-                            <Width>190</Width>
-                        </MinSize>
-                        <MaxSize>
-                            <Height>100</Height>
-                            <Width>240</Width>
-                        </MaxSize>-->
+                        <!-- <MinSize>
+                             <Height>100</Height>
+                             <Width>190</Width>
+                         </MinSize>
+                         <MaxSize>
+                             <Height>100</Height>
+                             <Width>240</Width>
+                         </MaxSize>-->
                     </Geometry>
                     <Icons>
                         <Icon Type="Normal">./icons/iconNormal.png</Icon>

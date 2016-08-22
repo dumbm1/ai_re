@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="css/topcoat-desktop-dark.min.css"/>
     <link id="hostStyle" rel="stylesheet" href="css/styles.css"/>
 
-    <title>regexp-replace</title>
+    <title>re</title>
+    <style type="text/css">
+    </style>
 </head>
 
 <body class="hostElt main-pan">
@@ -15,26 +17,49 @@
 
     <div class="block">
         <div class="row">
-            <input class="hostTextarea" id="fld_regStr" type="text" autofocus>
-            <input class="hostTextarea" id="fld_replacer" type="text">
+            <textarea class="hostTextarea" id="fld_val" autofocus></textarea>
+        </div>
+        <div class="row float-left">
+            <input id="btn_eval_js" class="hostButton btns" type="button" value="Chrome" title="ctrl+h"/>
+            <input id="btn_eval_jsx" class="hostButton btns" type="button" value="AI" title="ctrl+i"/>
+            <input id="btn_clear" class="hostButton btns" type="button" value="Clear" title="ctrl+d"/>
+        </div>
+        <div class="row float-left">
+            <select class="hostTextarea float-left" name="keywords" id="lst_keywords">
+                <option>documents</option>
+                <option>activeDocument</option>
+                <option>layers</option>
+                <option>activeLayer</option>
+                <option>textFrames</option>
+                <option>textRanges</option>
+                <option>pathItems</option>
+                <option>pageItems</option>
+                <option>selection</option>
+                <option>$.writeln</option>
+                <option>console.log</option>
+                <option>redraw();</option>
+            </select>
+            <input id="btn_repeat" class="hostButton btns" type="button" value="Repeat"/>
+        </div>
+        <div class="row float-right">
+            <input id="btn_saveCode" class="hostButton btns" type="button" value="Save Code"/>
+            <input id="btn_refrash" class="hostButton btns" type="button" value="Refrash"/>
+            <input id="btn_killCEP" class="hostButton btns" type="button" value="Kill CEP"/>
         </div>
         <div class="row">
-            <input id="btn_repl" class="hostButton float-left" type="button" value="Replace Text"/>
-            <input id="btn_killCEP" class="hostButton float-right" type="button" value="Reboot Extension"/>
-            <input id="btn_refrash" class="hostButton float-right" type="button" value="Refrash Extension"/>
+            <textarea class="hostTextarea" id="fld_return"></textarea>
         </div>
-        <div class="row">
-            <input class="hostTextarea" id="fld_return" type="text">
-        </div>
+
 
     </div>
 </div>
 
 <script src="js/libs/CSInterface.js"></script>
-<script src="js/libs/jquery-3.1.0.min.js"></script>
+<script src="js/libs/jquery-2.0.2.min.js"></script>
 
 <script src="js/themeManager.js"></script>
 <script src="js/main.js"></script>
+
 
 </body>
 </html>
