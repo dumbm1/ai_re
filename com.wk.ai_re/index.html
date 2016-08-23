@@ -17,9 +17,10 @@
 
     <div class="block">
         <div class="row">
+            <span>Regular Expression:</span>
             <input type="text" class="hostTextarea" id="fld_re" autofocus>
         </div>
-        <div class="row float-left">
+        <div class="row">
             <select class="hostTextarea float-left" name="keywords" id="lst_keywords_re">
                 <option>[]</option>
                 <option>()</option>
@@ -34,10 +35,14 @@
                 <option>[а-яА-Я]</option>
                 <option>[^а-яА-Я]</option>
             </select>
-            <input id="btn_repeat_re" class="hostButton btns" type="button" value="Repeat"/>
+            <input id="btn_repeat_re" class="hostButton btns float-left" type="button" value="Repeat"/>
+            <input type="checkbox" title="g" checked id="chk_g"> <span class="right-label">g</span>
+            <input type="checkbox" title="m" checked id="chk_m"> <span class="right-label">m</span>
+            <input type="checkbox" title="i" checked id="chk_i"> <span class="right-label">i</span>
         </div>
 
         <div class="row">
+            <span>Replace To:</span>
             <input type="text" class="hostTextarea" id="fld_replacer" autofocus>
         </div>
         <div class="row float-left">
