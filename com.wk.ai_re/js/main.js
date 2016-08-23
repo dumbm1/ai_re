@@ -16,43 +16,36 @@
     themeManager.init ();
     loadJSX ("json2.js");
 
-    $ ("#btn_eval_js").click (function () {
-      var elem        = document.getElementById ("fld_val");
-      var elem_return = document.getElementById ('fld_return');
-      if (!elem_return.value) {
-        elem_return.value = evalInChrome (elem.value);
-      } else {
-        elem_return.value += '\n' + evalInChrome (elem.value);
-      }
-      elem.focus ();
-    });
-    $ ("#btn_eval_jsx").click (function () {
-      var elem        = document.getElementById ("fld_val");
+    $ ("#btn_replace").click (function () {
+      var elem        = document.getElementById ("fld_re");
       var elem_return = document.getElementById ('fld_return');
       evalInAi (elem.value, elem_return);
       elem.focus ();
     });
-    $ ("#btn_clear").click (function () {
-      $ ("#fld_return").val ('');
-    });
-    // todo: refactor this code to jQuery syntax
-    document.getElementById ('lst_keywords').addEventListener ('change', function () {
-      var elem = document.getElementById ('fld_val');
+    
+    document.getElementById ('lst_keywords_re').addEventListener ('change', function () {
+      var elem = document.getElementById ('fld_re');
       insertAtCursor (elem, this.value);
     });
-    $ ("#btn_repeat").click (function () {
-      var elem = document.getElementById ("fld_val");
-      var val  = document.getElementById ('lst_keywords').value;
+        document.getElementById ('lst_keywords_replacer').addEventListener ('change', function () {
+      var elem = document.getElementById ('fld_replacer');
+      insertAtCursor (elem, this.value);
+    });
+
+    $ ("#btn_repeat_re").click (function () {
+      var elem = document.getElementById ("fld_re");
+      var val  = document.getElementById ('lst_keywords_re').value;
       insertAtCursor (elem, val);
     });
-    $ ("#btn_saveCode").click (function () {
-
+    $ ("#btn_repeat_replacer").click (function () {
+      var elem = document.getElementById ("fld_replacer");
+      var val  = document.getElementById ('lst_keywords_replacer').value;
+      insertAtCursor (elem, val);
     });
 
     $ ("#btn_refrash").click (reloadPanel);
     $ ("#btn_killCEP").click (function () {
-      /*csInterface.evalScript ("killCEP()");*/
-      new CSInterface ().closeExtension ();
+      csInterface.closeExtension ();
     });
 
   }
@@ -64,21 +57,7 @@
     location.reload ();
   }
 
-  /**
-   * Eval javascript string on chrome browser
-   *
-   * @param {String} str - the javascript code string
-   * @return {String} res - the evaluation result or error message
-   * */
-  function evalInChrome (str) {
-    var res = '';
-    try {
-      res = eval (str);
-    } catch (e) {
-      res = e/*.message + ', ' + e.line*/;
-    }
-    return '[chrome]: ' + res;
-  }
+
 
   /**
    * Eval javascript string on chrome browser

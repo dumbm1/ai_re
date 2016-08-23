@@ -17,25 +17,15 @@
 
     <div class="block">
         <div class="row">
-            <input  type="text" class="hostTextarea" id="fld_val" autofocus>
+            <input type="text" class="hostTextarea" id="fld_re" autofocus>
         </div>
         <div class="row float-left">
-            <input id="btn_eval_js" class="hostButton btns" type="button" value="Chrome" title="ctrl+h"/>
-            <input id="btn_eval_jsx" class="hostButton btns" type="button" value="AI" title="ctrl+i"/>
-            <input id="btn_clear" class="hostButton btns" type="button" value="Clear" title="ctrl+d"/>
-        </div>
-        <div class="row float-left">
-            <select class="hostTextarea float-left" name="keywords" id="lst_keywords">
+            <select class="hostTextarea float-left" name="keywords" id="lst_keywords_re">
                 <option>[]</option>
                 <option>()</option>
                 <option>^</option>
                 <option>$</option>
                 <option>\s</option>
-                <option>$1</option>
-                <option>$2</option>
-                <option>$3</option>
-                <option>$4</option>
-                <option>$5</option>
                 <option>^$</option>
                 <option>\*</option>
                 <option>\d</option>
@@ -44,14 +34,38 @@
                 <option>[а-яА-Я]</option>
                 <option>[^а-яА-Я]</option>
             </select>
-            <input id="btn_repeat" class="hostButton btns" type="button" value="Repeat"/>
+            <input id="btn_repeat_re" class="hostButton btns" type="button" value="Repeat"/>
+        </div>
+
+        <div class="row">
+            <input type="text" class="hostTextarea" id="fld_replacer" autofocus>
+        </div>
+        <div class="row float-left">
+            <select class="hostTextarea float-left" name="keywords" id="lst_keywords_replacer">
+                <option>$1</option>
+                <option>$2</option>
+                <option>$3</option>
+                <option>$4</option>
+                <option>$5</option>
+                <option>$6</option>
+                <option>$7</option>
+                <option>$8</option>
+                <option>$9</option>
+                <option>$+</option>
+                <option>$`</option>
+                <option>$'</option>
+                <option>$_</option>
+                <option>$&</option>
+            </select>
+            <input id="btn_repeat_replacer" class="hostButton btns" type="button" value="Repeat"/>
         </div>
         <div class="row float-right">
+            <input id="btn_replace" class="hostButton btns" type="button" value="Replace Text"/>
             <input id="btn_refrash" class="hostButton btns" type="button" value="Refrash"/>
             <input id="btn_killCEP" class="hostButton btns" type="button" value="Kill CEP"/>
         </div>
         <div class="row">
-            <input class="hostTextarea" id="fld_return" disabled>
+            <input type="text" class="hostTextarea" id="fld_return" disabled>
         </div>
 
 

@@ -46,8 +46,8 @@
                     <Menu>ai_re v0.0.4</Menu>
                     <Geometry>
                         <Size>
-                            <Height>280</Height>
-                            <Width>250</Width>
+                            <Height>200</Height>
+                            <Width>350</Width>
                         </Size>
                         <!-- <MinSize>
                              <Height>100</Height>
