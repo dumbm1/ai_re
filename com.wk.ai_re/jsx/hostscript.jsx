@@ -74,7 +74,7 @@ function repl (regStr, replacer) {
       aCon.length   = result[0].length;
       aCon.contents = aCon.contents.replace (reg, replacer);
       // !!! when the match.length is different with the replacer.length the loop becomes infinite
-      reg.lastIndex += replacer.length + 1;
+      reg.lastIndex += replacer.length - result[0].length + 1;
       count++;
     } catch (e) {
     }

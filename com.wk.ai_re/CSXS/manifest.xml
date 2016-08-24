@@ -46,17 +46,17 @@
                     <Menu>ai_re v0.0.4</Menu>
                     <Geometry>
                         <Size>
-                            <Height>200</Height>
-                            <Width>350</Width>
+                            <Height>175</Height>
+                            <Width>385</Width>
                         </Size>
-                        <!-- <MinSize>
-                             <Height>100</Height>
-                             <Width>190</Width>
+                         <MinSize>
+                             <Height>175</Height>
+                             <Width>385</Width>
                          </MinSize>
                          <MaxSize>
-                             <Height>100</Height>
-                             <Width>240</Width>
-                         </MaxSize>-->
+                             <Height>175</Height>
+                             <Width>385</Width>
+                         </MaxSize>
                     </Geometry>
                     <Icons>
                         <Icon Type="Normal">./icons/iconNormal.png</Icon>

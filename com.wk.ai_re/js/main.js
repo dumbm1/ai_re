@@ -17,17 +17,18 @@
     loadJSX ("json2.js");
 
     $ ("#btn_replace").click (function () {
-      var elem        = document.getElementById ("fld_re");
-      var elem_return = document.getElementById ('fld_return');
-      evalInAi (elem.value, elem_return);
-      elem.focus ();
+      var elem_re       = document.getElementById ("fld_re");
+      var elem_replacer = document.getElementById ('fld_replacer');
+      var elem_return   = document.getElementById ('fld_return');
+      repl (elem_re.value, elem_replacer.value, elem_return);
+      elem_re.focus ();
     });
-    
+
     document.getElementById ('lst_keywords_re').addEventListener ('change', function () {
       var elem = document.getElementById ('fld_re');
       insertAtCursor (elem, this.value);
     });
-        document.getElementById ('lst_keywords_replacer').addEventListener ('change', function () {
+    document.getElementById ('lst_keywords_replacer').addEventListener ('change', function () {
       var elem = document.getElementById ('fld_replacer');
       insertAtCursor (elem, this.value);
     });
@@ -56,8 +57,6 @@
   function reloadPanel () {
     location.reload ();
   }
-
-
 
   /**
    * Eval javascript string on chrome browser
