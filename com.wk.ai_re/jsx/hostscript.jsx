@@ -52,7 +52,7 @@ function repl (regStr, replacer) {
   }
   replacer = replacer || '';
 
-  var count = 0;
+  var replaceCount = 0;
   if (selection.length != 1) {
     alert ('Select the text frame by Selection Tool, Direct Selection Tool or Group Selection Tool');
     return -1;
@@ -67,17 +67,23 @@ function repl (regStr, replacer) {
   } catch (e) {
     return e.message + ', line: ' + e.line;
   }
-
+  var protectDebugCount = 1;
   while (result = reg.exec (txtFrame.contents)) {
+    // force abort script if loop becomes infinite
+    if (protectDebugCount % 1001 == 0) {
+      confirm ('Do you want to abort the script?');
+    }
+
     try {
       var aCon      = txtFrame.characters[result.index];
       aCon.length   = result[0].length;
       aCon.contents = aCon.contents.replace (reg, replacer);
       // !!! when the match.length is different with the replacer.length the loop becomes infinite
-      reg.lastIndex += replacer.length - result[0].length + 1;
-      count++;
+      reg.lastIndex += replacer.length - result[0].length /*+ 1*/;
+      replaceCount++;
     } catch (e) {
     }
+    protectDebugCount++;
   }
-  return count;
+  return replaceCount;
 }
