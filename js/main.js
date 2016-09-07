@@ -94,7 +94,7 @@
    * */
   function repl (regStr, replacer, fld_return) {
     csInterface.evalScript (
-      'repl(' + JSON.stringify (regStr) + ',' + JSON.stringify (replacer) + ')', function (res) {
+      'replInCollect(' + JSON.stringify (regStr) + ',' + JSON.stringify (replacer) + ')', function (res) {
         var pref = '';
         if (!res.match (/err/gmi)) pref = 'replaces: ';
         fld_return.value = pref + res;
