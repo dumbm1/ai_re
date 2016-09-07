@@ -20,7 +20,13 @@
       var elem_re       = document.getElementById ("fld_re");
       var elem_replacer = document.getElementById ('fld_replacer');
       var elem_return   = document.getElementById ('fld_return');
-      repl (elem_re.value, elem_replacer.value, elem_return);
+      var regFlagsStr   = '';
+      $ (".reg-flags").each (function () {
+        if ($ (this).is (':checked')) {
+          regFlagsStr += $ (this).attr ('title');
+        }
+      });
+      repl (elem_re.value, elem_replacer.value, regFlagsStr, elem_return);
       elem_re.focus ();
     });
 
@@ -92,11 +98,15 @@
    * @param {String} regStr - regular expression string
    * @param {String} replacer - replacer string
    * */
-  function repl (regStr, replacer, fld_return) {
+  function repl (regStr, replacer, regFlagsStr, fld_return) {
     csInterface.evalScript (
-      'replInCollect(' + JSON.stringify (regStr) + ',' + JSON.stringify (replacer) + ')', function (res) {
+      'replInCollect('
+      + JSON.stringify (regStr) + ',' + JSON.stringify (replacer) + ',' + JSON.stringify (regFlagsStr) + ')',
+      function (res) {
         var pref = '';
-        if (!res.match (/err/gmi)) pref = 'replaces: ';
+        if (!res.match (/err/gmi)) {
+          pref = 'replaces: ';
+        };
         fld_return.value = pref + res;
       });
   }

@@ -18,8 +18,10 @@ function evalStr (str) {
  * @param {Function} repl - the applied function
  * @param {Object} collection - some Illustrator DOM collection of elements (selection, PageItems, ets.)
  * */
-function replInCollect (regStr, replacer) {
+function replInCollect (regStr, replacer, regFlags) {
+  var replCount = 0;
   recurs (selection);
+  return replCount;
 
   function recurs (collection) {
     if (!collection.length) throw new Error ('Bad collection');
@@ -30,7 +32,7 @@ function replInCollect (regStr, replacer) {
           recurs (elem.pageItems);
           break;
         case 'TextFrame':
-          repl (elem);
+         replCount += repl (elem);
           break;
         default:
           break;
@@ -62,28 +64,44 @@ function replInCollect (regStr, replacer) {
         reg;
 
     try {
-      reg = new RegExp (regStr, 'gmi')
+      reg = new RegExp (regStr, regFlags)
     } catch (e) {
       return e.message + ', line: ' + e.line;
     }
-    var protectDebugCount = 1;
-    while (result = reg.exec (txtFrame.contents)) {
-      // force abort script if loop becomes infinite
-      if (protectDebugCount % 1001 == 0) {
-        confirm ('Do you want to abort the script?');
-      }
 
+    if (!regFlags.match (/g/)) {
+      result = reg.exec (txtFrame.contents)
       try {
-        var currMatchPiece      = txtFrame.characters[result.index];
-        currMatchPiece.length   = result[0].length;
-        currMatchPiece.contents = currMatchPiece.contents.replace (reg, replacer);
+        var currMatch      = txtFrame.characters[result.index];
+        currMatch.length   = result[0].length;
+        currMatch.contents = currMatch.contents.replace (reg, replacer);
         // !!! when the match.length is different with the replacer.length the loop becomes infinite
         reg.lastIndex += replacer.length - result[0].length;
         replaceCount++;
       } catch (e) {
       }
-      protectDebugCount++;
+    } else {
+      var protectDebugCount = 1;
+
+      while (result = reg.exec (txtFrame.contents)) {
+        // force abort script if loop becomes infinite
+        if (protectDebugCount % 1001 == 0) {
+          confirm ('Do you want to abort the script?');
+        }
+
+        try {
+          var currMatch      = txtFrame.characters[result.index];
+          currMatch.length   = result[0].length;
+          currMatch.contents = currMatch.contents.replace (reg, replacer);
+          // !!! when the match.length is different with the replacer.length the loop becomes infinite
+          reg.lastIndex += replacer.length - result[0].length;
+          replaceCount++;
+        } catch (e) {
+        }
+        protectDebugCount++;
+      }
     }
+
     return replaceCount;
   }
 }
