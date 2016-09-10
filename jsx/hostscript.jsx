@@ -32,7 +32,7 @@ function replInCollect (regStr, replacer, regFlags) {
           recurs (elem.pageItems);
           break;
         case 'TextFrame':
-         replCount += repl (elem);
+          replCount += repl (elem);
           break;
         default:
           break;
@@ -84,9 +84,10 @@ function replInCollect (regStr, replacer, regFlags) {
       var protectDebugCount = 1;
 
       while (result = reg.exec (txtFrame.contents)) {
-        // force abort script if loop becomes infinite
-        if (protectDebugCount % 1001 == 0) {
-          confirm ('Do you want to abort the script?');
+        if (protectDebugCount % 1001 == 0) { // force abort script if loop becomes infinite
+          if (confirm ('It seems that the loop becomes infinite\n' +
+              'Current number of iterations is' + protectDebugCount + '\n' +
+              'Do you want to abort the script?')) break;
         }
 
         try {
