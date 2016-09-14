@@ -2,7 +2,7 @@
 <ExtensionManifest
         Version="4.0"
         ExtensionBundleId="com.wk.ai_re"
-        ExtensionBundleVersion="0.6"
+        ExtensionBundleVersion="0.8"
         ExtensionBundleName="ai_re"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Author>
@@ -18,7 +18,7 @@
         <![CDATA[Replace text by force of javascript regular expressions]]>
     </Abstract>
     <ExtensionList>
-        <Extension Id="com.wk.ai_re" Version="0.6"/>
+        <Extension Id="com.wk.ai_re" Version="0.8"/>
     </ExtensionList>
     <ExecutionEnvironment>
         <HostList>
@@ -43,18 +43,18 @@
                 </Lifecycle>
                 <UI>
                     <Type>Panel</Type>
-                    <Menu>ai_re v0.6</Menu>
+                    <Menu>ai_re v0.8</Menu>
                     <Geometry>
                         <Size>
-                            <Height>235</Height>
+                            <Height>260</Height>
                             <Width>385</Width>
                         </Size>
                         <MinSize>
-                            <Height>235</Height>
+                            <Height>260</Height>
                             <Width>385</Width>
                         </MinSize>
                         <MaxSize>
-                            <Height>235</Height>
+                            <Height>260</Height>
                             <Width>385</Width>
                         </MaxSize>
                     </Geometry>

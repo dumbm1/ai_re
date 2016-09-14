@@ -72,6 +72,14 @@ input[type=checkbox] {
   width:      100%;
   padding:    2px;
   font-size:  1.2em;
+  height:     40px;
+  resize:     none;
+  overflow:   auto;
+}
+
+#fld_return {
+  height: 60px;
+  font-size: 1.1em;
 }
 
 #btn_replace {

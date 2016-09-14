@@ -18,30 +18,31 @@
     <div class="block">
         <div class="row">
             <span>Regular Expression:</span>
-            <input type="text" class="hostTextarea" id="fld_re" autofocus>
+            <textarea class="hostTextarea" id="fld_re" autofocus></textarea>
         </div>
         <div class="row">
-            <input class="reg-flags" type="checkbox" title="g" checked id="reg_flag_g"> <span
-                class="right-label">g</span>
-            <input class="reg-flags" type="checkbox" title="m" checked id="reg_flag_m"> <span
-                class="right-label">m</span>
-            <input class="reg-flags" type="checkbox" title="i" checked id="reg_flag_i"> <span
-                class="right-label">i</span>
-            <input type="checkbox" title="escape" id="escape"> <span class="right-label">escape</span>
+            <input class="reg-flags" type="checkbox" title="g" checked id="reg_flag_g">
+            <span class="right-label">g</span>
+            <input class="reg-flags" type="checkbox" title="m" checked id="reg_flag_m">
+            <span class="right-label">m</span>
+            <input class="reg-flags" type="checkbox" title="i" checked id="reg_flag_i">
+            <span class="right-label">i</span>
+            <input type="checkbox" title="escape" id="escape">
+            <span class="right-label">escape</span>
         </div>
 
         <div class="row">
             <span>Replace To:</span>
-            <input type="text" class="hostTextarea" id="fld_replacer">
+            <textarea class="hostTextarea" id="fld_replacer"></textarea>
         </div>
-        <div class="row float-right">
+        <div class="row">
             <input id="btn_replace" class="hostButton btns" type="button" value="Replace Text"/>
             <input id="btn_refrash" class="hostButton btns" type="button" value="Refrash"/>
-            <input id="btn_killCEP" class="hostButton btns" type="button" value="Kill CEP"/>
+            <input id="btn_killCEP" class="hostButton btns" type="button" value="Reboot"/>
         </div>
         <div class="row">
             <span>Output info:</span>
-            <input type="text" id="fld_return" disabled>
+            <textarea id="fld_return" disabled></textarea>
         </div>
 
     </div>
