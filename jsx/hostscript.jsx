@@ -19,6 +19,7 @@ function evalStr (str) {
  * @param {Object} collection - some Illustrator DOM collection of elements (selection, PageItems, ets.)
  * */
 function replInCollect (regStr, replacer, regFlags) {
+
   var replCount = 0;
   recurs (selection);
   return replCount;
@@ -40,6 +41,8 @@ function replInCollect (regStr, replacer, regFlags) {
     }
   }
 
+
+
   /**
    * change Contents Of Word Or String Remain Formatting
    * autor (c)pixxxel schubser
@@ -52,6 +55,7 @@ function replInCollect (regStr, replacer, regFlags) {
    * @param {String} replacer - replacer string
    * */
   function repl (txtFrame) {
+
     if (!regStr.length) {
       throw new Error ('No regexp input value');
     }

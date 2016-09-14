@@ -22,7 +22,7 @@ input {
 
 input[type=text] {
   border: 1px solid rgba(0, 0, 0, .4);
-  height: 20px;
+  height: 40px;
   width:  100%;
 }
 
@@ -74,17 +74,8 @@ input[type=checkbox] {
   font-size:  1.2em;
 }
 
-#lst_keywords_re, #lst_keywords_replacer {
-  height: 20px;
-  width:  70px;
-}
-
 #btn_replace {
   margin-right: 15px;
   width:        100px;
   font-weight:  bold;
-}
-
-#btn_repeat_re, #btn_repeat_replacer {
-  margin-right: 10px;
 }

@@ -1,6 +1,6 @@
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, regexp: true, indent: 4, maxerr: 50 */
 /*global $, window, location, CSInterface, SystemPath, themeManager*/
-
+//todo: add unescape function
 (function () {
   'use strict';
 
@@ -20,34 +20,19 @@
       var elem_re       = document.getElementById ("fld_re");
       var elem_replacer = document.getElementById ('fld_replacer');
       var elem_return   = document.getElementById ('fld_return');
+      var escFlag       = document.getElementById ('escape');
       var regFlagsStr   = '';
       $ (".reg-flags").each (function () {
         if ($ (this).is (':checked')) {
           regFlagsStr += $ (this).attr ('title');
         }
       });
+      if (escFlag.checked) {
+        elem_re.value = _escape (elem_re.value);
+      }
+
       repl (elem_re.value, elem_replacer.value, regFlagsStr, elem_return);
       elem_re.focus ();
-    });
-
-    document.getElementById ('lst_keywords_re').addEventListener ('change', function () {
-      var elem = document.getElementById ('fld_re');
-      insertAtCursor (elem, this.value);
-    });
-    document.getElementById ('lst_keywords_replacer').addEventListener ('change', function () {
-      var elem = document.getElementById ('fld_replacer');
-      insertAtCursor (elem, this.value);
-    });
-
-    $ ("#btn_repeat_re").click (function () {
-      var elem = document.getElementById ("fld_re");
-      var val  = document.getElementById ('lst_keywords_re').value;
-      insertAtCursor (elem, val);
-    });
-    $ ("#btn_repeat_replacer").click (function () {
-      var elem = document.getElementById ("fld_replacer");
-      var val  = document.getElementById ('lst_keywords_replacer').value;
-      insertAtCursor (elem, val);
     });
 
     $ ("#btn_refrash").click (reloadPanel);
@@ -101,16 +86,22 @@
   function repl (regStr, replacer, regFlagsStr, fld_return) {
     csInterface.evalScript (
       'replInCollect('
-      + JSON.stringify (regStr) + ',' + JSON.stringify (replacer) + ',' + JSON.stringify (regFlagsStr) + ')',
+      + JSON.stringify (regStr) + ',' + JSON.stringify (replacer) + ','
+      + JSON.stringify (regFlagsStr) + ')',
       function (res) {
         var pref = '';
         if (!res.match (/err/gmi)) {
           pref = 'replaces: ';
-        };
+        }
+        ;
         fld_return.value = pref + res;
       });
   }
 
 } ());
+
+function _escape (text) {
+  return text.replace (/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+}
 
 

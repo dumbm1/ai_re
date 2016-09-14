@@ -21,48 +21,18 @@
             <input type="text" class="hostTextarea" id="fld_re" autofocus>
         </div>
         <div class="row">
-            <select class="hostTextarea float-left" name="keywords" id="lst_keywords_re">
-                <option>[]</option>
-                <option>()</option>
-                <option>^</option>
-                <option>$</option>
-                <option>\s</option>
-                <option>^$</option>
-                <option>\*</option>
-                <option>\d</option>
-                <option>[a-zA-Z]</option>
-                <option>[^a-zA-Z]</option>
-                <option>[а-яА-Я]</option>
-                <option>[^а-яА-Я]</option>
-            </select>
-            <input id="btn_repeat_re" class="hostButton btns float-left" type="button" value="Repeat"/>
-            <input class="reg-flags" type="checkbox" title="g" checked id="reg_flag_g"> <span class="right-label">g</span>
-            <input class="reg-flags" type="checkbox" title="m" checked id="reg_flag_m"> <span class="right-label">m</span>
-            <input class="reg-flags" type="checkbox" title="i" checked id="reg_flag_i"> <span class="right-label">i</span>
+            <input class="reg-flags" type="checkbox" title="g" checked id="reg_flag_g"> <span
+                class="right-label">g</span>
+            <input class="reg-flags" type="checkbox" title="m" checked id="reg_flag_m"> <span
+                class="right-label">m</span>
+            <input class="reg-flags" type="checkbox" title="i" checked id="reg_flag_i"> <span
+                class="right-label">i</span>
+            <input type="checkbox" title="escape" id="escape"> <span class="right-label">escape</span>
         </div>
 
         <div class="row">
             <span>Replace To:</span>
             <input type="text" class="hostTextarea" id="fld_replacer">
-        </div>
-        <div class="row float-left">
-            <select class="hostTextarea float-left" name="keywords" id="lst_keywords_replacer">
-                <option>$1</option>
-                <option>$2</option>
-                <option>$3</option>
-                <option>$4</option>
-                <option>$5</option>
-                <option>$6</option>
-                <option>$7</option>
-                <option>$8</option>
-                <option>$9</option>
-                <option>$+</option>
-                <option>$`</option>
-                <option>$'</option>
-                <option>$_</option>
-                <option>$&</option>
-            </select>
-            <input id="btn_repeat_replacer" class="hostButton btns" type="button" value="Repeat"/>
         </div>
         <div class="row float-right">
             <input id="btn_replace" class="hostButton btns" type="button" value="Replace Text"/>
