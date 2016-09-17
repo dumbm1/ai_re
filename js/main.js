@@ -20,26 +20,26 @@
       var elem_re       = document.getElementById ("fld_re");
       var elem_replacer = document.getElementById ('fld_replacer');
       var elem_return   = document.getElementById ('fld_return');
-      var escFlag       = document.getElementById ('escape');
       var regFlagsStr   = '';
       $ (".reg-flags").each (function () {
         if ($ (this).is (':checked')) {
           regFlagsStr += $ (this).attr ('title');
         }
       });
-      if (escFlag.checked) {
-        elem_re.value = _escape (elem_re.value);
-      }
 
       repl (elem_re.value, elem_replacer.value, regFlagsStr, elem_return);
       elem_re.focus ();
     });
+    $ ("#btn_escape").click (function () {
+      var elem_re   = document.getElementById ("fld_re");
+      elem_re.value = _escape (elem_re.value);
+    })
 
-    $ ("#btn_refrash").click (reloadPanel);
-    $ ("#btn_killCEP").click (function () {
-      csInterface.closeExtension ();
+    $ ("#btn_GitHub").click (function () {
+      window.cep.util.openURLInDefaultBrowser ("https://github.com/dumbm1/ai_re")
     });
 
+    $ ("#btn_refrash").click (reloadPanel);
   }
 
   init ();
@@ -47,19 +47,6 @@
   // Reloads extension panel
   function reloadPanel () {
     location.reload ();
-  }
-
-  /**
-   * Eval javascript string on chrome browser
-   *
-   * @param {String} str - the javascript code string
-   * */
-  function evalInAi (str, fld_return) {
-    csInterface.evalScript ('evalStr(' + JSON.stringify (str) + ')', function (res) {
-      var prefStr = 'Number of replaces: ';
-
-      fld_return.value = prefStr + res;
-    });
   }
 
   function insertAtCursor (myField, myValue) {
@@ -93,8 +80,13 @@
         if (!res.match (/err/gmi)) {
           pref = 'replaces: ';
         }
-        ;
-        fld_return.value = pref + res;
+        if (!fld_return.value) {
+          fld_return.value     = pref + res;
+          fld_return.scrollTop = fld_return.scrollHeight - fld_return.clientHeight;
+        } else {
+          fld_return.value += '\n' + pref + res;
+          fld_return.scrollTop = fld_return.scrollHeight - fld_return.clientHeight;
+        }
       });
   }
 

@@ -78,12 +78,13 @@ input[type=checkbox] {
 }
 
 #fld_return {
-  height: 60px;
+  height:    60px;
   font-size: 1.1em;
 }
 
 #btn_replace {
   margin-right: 15px;
-  width:        100px;
+  width:        150px;
   font-weight:  bold;
+  font-size:    1.1em;
 }
