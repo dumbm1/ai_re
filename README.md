@@ -2,10 +2,12 @@
 #Html/css/js extension panel for Adobe Illustrator CC+
 ##What's new:
 It's a first public release
+
 ##Great Destination:
 * Search and replace by regular expression string
 * _Keep formatting of the original text_
 * Extended origin Illustrator dialog "Search and Replace..."
+
 ##Using:
 1. Select text frame[s] using the tools Selection Tool, Direct Selection Tool or Group Selection Tool.
 2. On the `Regular Expression:` field input a regular expression pattern.
