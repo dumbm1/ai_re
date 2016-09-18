@@ -71,9 +71,10 @@
    * @param {String} replacer - replacer string
    * */
   function repl (regStr, replacer, regFlagsStr, fld_return) {
+
     csInterface.evalScript (
       'replInCollect('
-      + JSON.stringify (regStr) + ',' + JSON.stringify (replacer) + ','
+      + JSON.stringify (regStr) + ',"' + replacer + '",'
       + JSON.stringify (regFlagsStr) + ')',
       function (res) {
         var pref = '';
@@ -93,7 +94,8 @@
 } ());
 
 function _escape (text) {
-  return text.replace (/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+  return text.replace (/[*+?.^$|]/g, "\\$&");
+  // return text.replace (/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 }
 
 

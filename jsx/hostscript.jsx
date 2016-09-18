@@ -19,10 +19,12 @@ function evalStr (str) {
  * @param {Object} collection - some Illustrator DOM collection of elements (selection, PageItems, ets.)
  * */
 function replInCollect (regStr, replacer, regFlags) {
-
-  var replCount = 0;
-  recurs (selection);
-  return replCount;
+  try {
+    var replCount = 0;
+    recurs (selection);
+    return replCount;
+  } catch (e) {
+  }
 
   function recurs (collection) {
     if (!collection.length) throw new Error ('Bad collection');
@@ -40,8 +42,6 @@ function replInCollect (regStr, replacer, regFlags) {
       }
     }
   }
-
-
 
   /**
    * change Contents Of Word Or String Remain Formatting
@@ -78,7 +78,8 @@ function replInCollect (regStr, replacer, regFlags) {
       try {
         var currMatch      = txtFrame.characters[result.index];
         currMatch.length   = result[0].length;
-        currMatch.contents = currMatch.contents.replace (reg, replacer);
+        // currMatch.contents = currMatch.contents.replace (reg, replacer);
+        currMatch.contents = replacer;
         // !!! when the match.length is different with the replacer.length the loop becomes infinite
         reg.lastIndex += replacer.length - result[0].length;
         replaceCount++;
@@ -97,7 +98,8 @@ function replInCollect (regStr, replacer, regFlags) {
         try {
           var currMatch      = txtFrame.characters[result.index];
           currMatch.length   = result[0].length;
-          currMatch.contents = currMatch.contents.replace (reg, replacer);
+          // currMatch.contents = currMatch.contents.replace (reg, replacer);
+          currMatch.contents = replacer;
           // !!! when the match.length is different with the replacer.length the loop becomes infinite
           reg.lastIndex += replacer.length - result[0].length;
           replaceCount++;

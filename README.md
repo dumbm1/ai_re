@@ -1,7 +1,9 @@
-#ai_re_1.0
+#ai_re_1.1
 #Html/css/js extension panel for Adobe Illustrator CC+
 ##What's new:
-It's a first public release
+Fixed a bug with special symbols on the `Replace To` field.
+It is now possible to use special characters in the replacement string.
+For example, characters `\n`, `\r`, `\t` etc.
 
 ##Great Destination:
 * Search and replace by regular expression string
@@ -16,5 +18,7 @@ It's a first public release
 5. Push the `escape` if any escape the special characters (such as `*`, `?`, `+`, `$` etc) on regular expression string.
 6. Push the `Replace button`.
 
-`Refrash` button is used to clear the input fields and the console.
-The result of the work is displayed in the `Output info` field.
+##Other options:
+* `Refrash` button is used to clear the input fields and the console.
+* The result of the work is displayed in the `Output info` field.
+* `GitHub` button open this public repository on the default internet browser
