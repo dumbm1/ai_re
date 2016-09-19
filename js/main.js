@@ -75,6 +75,7 @@
     csInterface.evalScript (
       'replInCollect('
       + JSON.stringify (regStr) + ',"' + replacer + '",'
+      // + JSON.stringify (regStr) + ',' + JSON.stringify (replacer) + ','
       + JSON.stringify (regFlagsStr) + ')',
       function (res) {
         var pref = '';

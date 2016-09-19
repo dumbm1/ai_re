@@ -78,10 +78,10 @@ function replInCollect (regStr, replacer, regFlags) {
       try {
         var currMatch      = txtFrame.characters[result.index];
         currMatch.length   = result[0].length;
-        // currMatch.contents = currMatch.contents.replace (reg, replacer);
-        currMatch.contents = replacer;
+        currMatch.contents = currMatch.contents.replace (reg, replacer);
+        // currMatch.contents = replacer;
         // !!! when the match.length is different with the replacer.length the loop becomes infinite
-        reg.lastIndex += replacer.length - result[0].length;
+        reg.lastIndex += currMatch.contents.length - result[0].length;
         replaceCount++;
       } catch (e) {
       }
@@ -98,10 +98,10 @@ function replInCollect (regStr, replacer, regFlags) {
         try {
           var currMatch      = txtFrame.characters[result.index];
           currMatch.length   = result[0].length;
-          // currMatch.contents = currMatch.contents.replace (reg, replacer);
-          currMatch.contents = replacer;
+          currMatch.contents = currMatch.contents.replace (reg, replacer);
+          // currMatch.contents = replacer;
           // !!! when the match.length is different with the replacer.length the loop becomes infinite
-          reg.lastIndex += replacer.length - result[0].length;
+          reg.lastIndex += currMatch.contents.length - result[0].length;
           replaceCount++;
         } catch (e) {
         }
