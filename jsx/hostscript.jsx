@@ -21,12 +21,19 @@ function evalStr(str) {
 function replInCollect(regStr, replacer, regFlags) {
   try {
     var replCount = 0;
-    recurs(selection);
+    recurs(selection, deselTxt);
+    recurs(selection, repl);
     return replCount;
   } catch (e) {
   }
 
-  function recurs(collection) {
+  function deselTxt(txtFrame) {
+    txtFrame.selected = false; // feint ears
+    txtFrame.selected = true;
+    return 0;
+  }
+
+  function recurs(collection, f) {
     if (!collection.length) throw new Error('Bad collection');
     for (var i = 0; i < collection.length; i++) {
       var elem = collection[i];
@@ -35,7 +42,7 @@ function replInCollect(regStr, replacer, regFlags) {
           recurs(elem.pageItems);
           break;
         case 'TextFrame':
-          replCount += repl(elem);
+          replCount += f(elem);
           break;
         default:
           break;
@@ -59,13 +66,14 @@ function replInCollect(regStr, replacer, regFlags) {
     if (!regStr.length) {
       throw new Error('No regexp input value');
     }
-    replacer = replacer || '';
+    // replacer = replacer || '';
 
     var replaceCount = 0;
 
     var resIndex = 0,
         result,
-        reg;
+        reg,
+        currMatch;
 
     try {
       reg = new RegExp(regStr, regFlags)
@@ -76,9 +84,10 @@ function replInCollect(regStr, replacer, regFlags) {
     if (!regFlags.match(/g/)) {
       result = reg.exec(txtFrame.contents);
       try {
-        var currMatch      = txtFrame.characters[result.index];
+        currMatch          = txtFrame.characters[result.index];
         currMatch.length   = result[0].length;
         currMatch.contents = currMatch.contents.replace(reg, replacer);
+        currMatch.select(true);
         // currMatch.contents = replacer;
         // !!! when the match.length is different with the replacer.length the loop becomes infinite
         reg.lastIndex += currMatch.contents.length - result[0].length;
@@ -89,7 +98,7 @@ function replInCollect(regStr, replacer, regFlags) {
       var protectDebugCount = 1;
 
       while (result = reg.exec(txtFrame.contents)) {
-        if (protectDebugCount % 1001 == 0) { // force abort script if loop becomes infinite
+        if (protectDebugCount % 1001 === 0) { // force abort script if loop becomes infinite
           if (confirm('It seems that the loop becomes infinite\n' +
               'Current number of iterations is' + protectDebugCount + '\n' +
               'Do you want to abort the script?')) {
@@ -98,9 +107,10 @@ function replInCollect(regStr, replacer, regFlags) {
         }
 
         try {
-          var currMatch      = txtFrame.characters[result.index];
+          currMatch          = txtFrame.characters[result.index];
           currMatch.length   = result[0].length;
           currMatch.contents = currMatch.contents.replace(reg, replacer);
+          currMatch.select(true);
           // currMatch.contents = replacer;
           // !!! when the match.length is different with the replacer.length the loop becomes infinite
           reg.lastIndex += currMatch.contents.length - result[0].length;
@@ -122,14 +132,22 @@ function replInCollect(regStr, replacer, regFlags) {
  * @param {Object} collection - some Illustrator DOM collection of elements (selection, PageItems, ets.)
  * */
 function selInCollect(regStr, replacer, regFlags) {
+
   try {
     var replCount = 0;
-    recurs(selection);
+    recurs(selection, deselTxt);
+    recurs(selection, selAllMatch);
     return replCount;
   } catch (e) {
   }
 
-  function recurs(collection) {
+  function deselTxt(txtFrame) {
+    txtFrame.selected = false; // feint ears
+    txtFrame.selected = true;
+    return 0;
+  }
+
+  function recurs(collection, f) {
     if (!collection.length) throw new Error('Bad collection');
     for (var i = 0; i < collection.length; i++) {
       var elem = collection[i];
@@ -138,7 +156,7 @@ function selInCollect(regStr, replacer, regFlags) {
           recurs(elem.pageItems);
           break;
         case 'TextFrame':
-          replCount += selAllMatch(elem);
+          replCount += f(elem);
           break;
         default:
           break;
@@ -167,7 +185,7 @@ function selInCollect(regStr, replacer, regFlags) {
 
     var resIndex = 0,
         result,
-        reg;
+        reg, currMatch;
 
     try {
       reg = new RegExp(regStr, regFlags)
@@ -178,7 +196,7 @@ function selInCollect(regStr, replacer, regFlags) {
     if (!regFlags.match(/g/)) {
       result = reg.exec(txtFrame.contents)
       try {
-        var currMatch    = txtFrame.characters[result.index];
+        currMatch        = txtFrame.characters[result.index];
         currMatch.length = result[0].length;
         currMatch.select(true);
         replaceCount++;
@@ -188,7 +206,7 @@ function selInCollect(regStr, replacer, regFlags) {
       var protectDebugCount = 1;
 
       while (result = reg.exec(txtFrame.contents)) {
-        if (protectDebugCount % 1001 == 0) { // force abort script if loop becomes infinite
+        if (protectDebugCount % 1001 === 0) { // force abort script if loop becomes infinite
           if (confirm('It seems that the loop becomes infinite\n' +
               'Current number of iterations is' + protectDebugCount + '\n' +
               'Do you want to abort the script?')) {
@@ -197,7 +215,7 @@ function selInCollect(regStr, replacer, regFlags) {
         }
 
         try {
-          var currMatch    = txtFrame.characters[result.index];
+          currMatch        = txtFrame.characters[result.index];
           currMatch.length = result[0].length;
           currMatch.select(true);
           replaceCount++;
