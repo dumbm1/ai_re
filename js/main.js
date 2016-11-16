@@ -30,6 +30,20 @@
       repl (elem_re.value, elem_replacer.value, regFlagsStr, elem_return);
       elem_re.focus ();
     });
+    $("#btn_selAllMatch").click(function(){
+      var elem_re       = document.getElementById ("fld_re");
+      var elem_replacer = document.getElementById ('fld_replacer');
+      var elem_return   = document.getElementById ('fld_return');
+      var regFlagsStr   = '';
+      $ (".reg-flags").each (function () {
+        if ($ (this).is (':checked')) {
+          regFlagsStr += $ (this).attr ('title');
+        }
+      });
+
+      selAllMatch (elem_re.value, elem_replacer.value, regFlagsStr, elem_return);
+      elem_re.focus ();
+    })
     $ ("#btn_escape").click (function () {
       var elem_re   = document.getElementById ("fld_re");
       elem_re.value = _escape (elem_re.value);
@@ -74,6 +88,33 @@
 
     csInterface.evalScript (
       'replInCollect('
+      + JSON.stringify (regStr) + ',"' + replacer + '",'
+      // + JSON.stringify (regStr) + ',' + JSON.stringify (replacer) + ','
+      + JSON.stringify (regFlagsStr) + ')',
+      function (res) {
+        var pref = '';
+        if (!res.match (/err/gmi)) {
+          pref = 'replaces: ';
+        }
+        if (!fld_return.value) {
+          fld_return.value     = pref + res;
+          fld_return.scrollTop = fld_return.scrollHeight - fld_return.clientHeight;
+        } else {
+          fld_return.value += '\n' + pref + res;
+          fld_return.scrollTop = fld_return.scrollHeight - fld_return.clientHeight;
+        }
+      });
+  }
+ /**
+   * Replace all matches in the selected text frame
+   *
+   * @param {String} regStr - regular expression string
+   * @param {String} replacer - replacer string
+   * */
+  function selAllMatch (regStr, replacer, regFlagsStr, fld_return) {
+
+    csInterface.evalScript (
+      'selInCollect('
       + JSON.stringify (regStr) + ',"' + replacer + '",'
       // + JSON.stringify (regStr) + ',' + JSON.stringify (replacer) + ','
       + JSON.stringify (regFlagsStr) + ')',
