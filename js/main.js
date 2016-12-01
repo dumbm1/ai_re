@@ -1,6 +1,5 @@
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, regexp: true, indent: 4, maxerr: 50 */
 /*global $, window, location, CSInterface, SystemPath, themeManager*/
-//todo: add unescape function
 (function () {
   'use strict';
 
@@ -121,7 +120,7 @@
       function (res) {
         var pref = '';
         if (!res.match (/err/gmi)) {
-          pref = 'replaces: ';
+          pref = 'matches: ';
         }
         if (!fld_return.value) {
           fld_return.value     = pref + res;

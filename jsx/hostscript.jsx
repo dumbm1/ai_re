@@ -25,6 +25,7 @@ function replInCollect(regStr, replacer, regFlags) {
     recurs(selection, repl);
     return replCount;
   } catch (e) {
+    return e.message;
   }
 
   function deselTxt(txtFrame) {
@@ -39,7 +40,7 @@ function replInCollect(regStr, replacer, regFlags) {
       var elem = collection[i];
       switch (elem.typename) {
         case 'GroupItem':
-          recurs(elem.pageItems);
+          recurs(elem.pageItems, f);
           break;
         case 'TextFrame':
           replCount += f(elem);
@@ -139,6 +140,7 @@ function selInCollect(regStr, replacer, regFlags) {
     recurs(selection, selAllMatch);
     return replCount;
   } catch (e) {
+    return e.message;
   }
 
   function deselTxt(txtFrame) {
@@ -153,7 +155,7 @@ function selInCollect(regStr, replacer, regFlags) {
       var elem = collection[i];
       switch (elem.typename) {
         case 'GroupItem':
-          recurs(elem.pageItems);
+          recurs(elem.pageItems, f);
           break;
         case 'TextFrame':
           replCount += f(elem);
