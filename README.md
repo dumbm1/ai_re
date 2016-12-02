@@ -1,4 +1,4 @@
-#ai_re_1.3: Search and Replace by `Regular Expression`
+#ai_re_1.4: Search and Replace by `Regular Expression`
 ## Saves the `original formatting` of the text
 ###The html/css/js extension panel for Adobe `Illustrator CC+`
 
