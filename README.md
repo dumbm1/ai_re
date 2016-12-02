@@ -3,14 +3,16 @@
 ###The html/css/js extension panel for Adobe `Illustrator CC+`
 
 ####Use the `Select All Matches` button for preview all matches:
-![preview](img/preview.png)
+![preview](img/preview_select.png)
 
 ####Use `Replace` button for replace all matches:
-![preview](img/replace.png)
+![preview](img/preview_replace.png)
 
-####What's new:
-* Added `Select All Matches` button.
-* Added highlighting places where the replacement was made (Post Factum).
+####Formatting text remains the same:
+![preview](img/preview_keep_formatting.png)
+
+####What has been changed in this version:
+* Fix the bugs
 
 ####Using:
 1. Select text frame[s] using the Selection Tool, Direct Selection Tool or Group Selection Tool.
