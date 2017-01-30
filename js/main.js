@@ -53,6 +53,11 @@
     });
 
     $ ("#btn_refrash").click (reloadPanel);
+
+    $("#btn_reload").click(function() {
+      new CSInterface().requestOpenExtension('com.wk.ai_re_wk.dialog');
+      new CSInterface().closeExtension();
+    });
   }
 
   init ();

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <ExtensionList>
-    <Extension Id="com.wk.ai_re_wk">
+    <Extension Id="com.wk.ai_re_wk.panel">
         <HostList>
-
-            <!-- Comment Host tags according to the apps you want your panel to support -->
-
-            <!-- Illustrator -->
             <Host Name="ILST" Port="8088"/>
-                        
+        </HostList>
+    </Extension>
+    <Extension Id="com.wk.ai_re_wk.dialog">
+        <HostList>
+            <Host Name="ILST" Port="8089"/>
         </HostList>
     </Extension>
 </ExtensionList>

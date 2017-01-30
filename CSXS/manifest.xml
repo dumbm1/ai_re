@@ -1,64 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ExtensionManifest
-        Version="4.0"
-        ExtensionBundleId="com.wk.ai_re_wk"
-        ExtensionBundleVersion="1.4"
-        ExtensionBundleName="ai_re_wk"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <Author>
-        <![CDATA[(c)MaratShagiev]]>
-    </Author>
-    <Contact mailto="m_js@bk.ru">
-        <![CDATA[m_js@bk.ru]]>
-    </Contact>
-    <Legal>
-        <![CDATA[Legal stuff...]]>
-    </Legal>
-    <Abstract href="https://github.com/dumbm1/ai_re/blob/master/README.md">
-        <![CDATA[Replace text by force of javascript regular expressions]]>
-    </Abstract>
-    <ExtensionList>
-        <Extension Id="com.wk.ai_re_wk" Version="1.4"/>
-    </ExtensionList>
-    <ExecutionEnvironment>
-        <HostList>
-            <Host Name="ILST" Version="17.0"/>
-        </HostList>
-        <LocaleList>
-            <Locale Code="All"/>
-        </LocaleList>
-        <RequiredRuntimeList>
-            <RequiredRuntime Name="CSXS" Version="4.0"/>
-        </RequiredRuntimeList>
-    </ExecutionEnvironment>
-    <DispatchInfoList>
-        <Extension Id="com.wk.ai_re_wk">
-            <DispatchInfo>
-                <Resources>
-                    <MainPath>./index.html</MainPath>
-                    <ScriptPath>./jsx/hostscript.jsx</ScriptPath>
-                </Resources>
-                <Lifecycle>
-                    <AutoVisible>true</AutoVisible>
-                </Lifecycle>
-                <UI>
-                    <Type>Panel</Type>
-                    <Menu>ai_re_wk 1.4</Menu>
-                    <Geometry>
-                        <Size>
-                            <Height>260</Height>
-                            <Width>390</Width>
-                        </Size>
-                    </Geometry>
-                    <Icons>
-                        <Icon Type="Normal">./icons/iconNormal.png</Icon>
-                        <Icon Type="RollOver">./icons/iconRollover.png</Icon>
-                        <Icon Type="Disabled">./icons/iconDisabled.png</Icon>
-                        <Icon Type="DarkNormal">./icons/iconDarkNormal.png</Icon>
-                        <Icon Type="DarkRollOver">./icons/iconDarkRollover.png</Icon>
-                    </Icons>
-                </UI>
-            </DispatchInfo>
-        </Extension>
-    </DispatchInfoList>
+    Version="4.0"
+    ExtensionBundleId="com.wk.ai_re_wk"
+    ExtensionBundleVersion="1.5"
+    ExtensionBundleName="ai_re_wk"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ExtensionList>
+    <Extension Id="com.wk.ai_re_wk.panel" Version="1.5"/>
+    <Extension Id="com.wk.ai_re_wk.dialog" Version="0.1"/>
+  </ExtensionList>
+  <ExecutionEnvironment>
+    <HostList>
+      <Host Name="ILST" Version="17.0"/>
+    </HostList>
+    <LocaleList>
+      <Locale Code="All"/>
+    </LocaleList>
+    <RequiredRuntimeList>
+      <RequiredRuntime Name="CSXS" Version="4.0"/>
+    </RequiredRuntimeList>
+  </ExecutionEnvironment>
+  <DispatchInfoList>
+    <Extension Id="com.wk.ai_re_wk.panel">
+      <DispatchInfo>
+        <Resources>
+          <MainPath>./index.html</MainPath>
+          <ScriptPath>./jsx/hostscript.jsx</ScriptPath>
+        </Resources>
+        <Lifecycle>
+          <AutoVisible>true</AutoVisible>
+        </Lifecycle>
+        <UI>
+          <Type>Panel</Type>
+          <Menu>ai_re_wk 1.5</Menu>
+          <Geometry>
+            <Size>
+              <Height>260</Height>
+              <Width>390</Width>
+            </Size>
+          </Geometry>
+          <Icons>
+            <Icon Type="Normal">./icons/iconNormal.png</Icon>
+            <Icon Type="RollOver">./icons/iconRollover.png</Icon>
+            <Icon Type="Disabled">./icons/iconDisabled.png</Icon>
+            <Icon Type="DarkNormal">./icons/iconDarkNormal.png</Icon>
+            <Icon Type="DarkRollOver">./icons/iconDarkRollover.png</Icon>
+          </Icons>
+        </UI>
+      </DispatchInfo>
+    </Extension>
+    <Extension Id="com.wk.ai_re_wk.dialog">
+      <DispatchInfo>
+        <Resources>
+          <MainPath>./dialog.html</MainPath>
+          <CEFCommandLine>
+          </CEFCommandLine>
+        </Resources>
+        <Lifecycle>
+          <AutoVisible>false</AutoVisible>
+        </Lifecycle>
+        <UI>
+          <Type>ModalDialog</Type>
+          <Menu>ai_re_wk reload 0.1</Menu>
+          <Geometry>
+            <Size>
+              <Height>1</Height>
+              <Width>1</Width>
+            </Size>
+          </Geometry>
+        </UI>
+      </DispatchInfo>
+    </Extension>
+  </DispatchInfoList>
 </ExtensionManifest>
