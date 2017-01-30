@@ -36,6 +36,10 @@ input[type=checkbox] {
   /*padding:  0;*/
 }
 
+#desel_flag {
+  margin-left: 10px;
+}
+
 .main-pan {
   margin:  auto;
   padding: 0;

@@ -126,13 +126,14 @@ function replInCollect(regStr, replacer, regFlags) {
   }
 
 }
+
 /**
  * Recursive bypassing the collection of elements
  *
  * @param {Function} repl - the applied function
  * @param {Object} collection - some Illustrator DOM collection of elements (selection, PageItems, ets.)
  * */
-function selInCollect(regStr, replacer, regFlags) {
+function selInCollect(regStr, replacer, deselFlag, regFlags) {
 
   try {
     var replCount = 0;
@@ -190,13 +191,18 @@ function selInCollect(regStr, replacer, regFlags) {
         reg, currMatch;
 
     try {
-      reg = new RegExp(regStr, regFlags)
+      reg = new RegExp(regStr, regFlags);
     } catch (e) {
       return e.message + ', line: ' + e.line;
     }
 
     if (!regFlags.match(/g/)) {
-      result = reg.exec(txtFrame.contents)
+      result = reg.exec(txtFrame.contents);
+      if (!result) {
+        if (deselFlag) {
+          txtFrame.selected = false;
+        }
+      }
       try {
         currMatch        = txtFrame.characters[result.index];
         currMatch.length = result[0].length;
@@ -207,7 +213,17 @@ function selInCollect(regStr, replacer, regFlags) {
     } else {
       var protectDebugCount = 1;
 
-      while (result = reg.exec(txtFrame.contents)) {
+      for (var i = 0; ; protectDebugCount++, i++) {
+        result = reg.exec(txtFrame.contents);
+        if (!result && !i) {
+          if (deselFlag) {
+            txtFrame.selected = false;
+            break;
+          }
+        } else if (!result && i) {
+          break;
+        }
+
         if (protectDebugCount % 1001 === 0) { // force abort script if loop becomes infinite
           if (confirm('It seems that the loop becomes infinite\n' +
               'Current number of iterations is' + protectDebugCount + '\n' +
@@ -223,8 +239,8 @@ function selInCollect(regStr, replacer, regFlags) {
           replaceCount++;
         } catch (e) {
         }
-        protectDebugCount++;
       }
+
     }
 
     return replaceCount;
