@@ -15,6 +15,13 @@
     themeManager.init();
     loadJSX("json2.js");
 
+    (function  () {
+      $("#form-re").sisyphus({
+        excludeFields: $("#fld_return"),
+        timeout: 10
+      })
+    } ());
+
     $("#btn_replace").click(function() {
       var elem_re       = document.getElementById("fld_re");
       var elem_replacer = document.getElementById('fld_replacer');

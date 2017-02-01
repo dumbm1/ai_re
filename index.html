@@ -14,44 +14,45 @@
 <body class="hostElt main-pan">
 
 <div id="content">
+  <form id="form-re">
+    <div class="block">
+      <div class="row">
+        <span>Regular Expression:</span>
+        <textarea class="hostTextarea" id="fld_re" autofocus spellcheck="false"></textarea>
+      </div>
+      <div class="row">
+        <input class="reg-flags" type="checkbox" title="g" checked id="reg_flag_g"/>
+        <span class="right-label">g</span>
+        <input class="reg-flags" type="checkbox" title="m" checked id="reg_flag_m"/>
+        <span class="right-label">m</span>
+        <input class="reg-flags" type="checkbox" title="i" checked id="reg_flag_i"/>
+        <span class="right-label">i</span>
+        <input type="checkbox" title="desel_empty" id="desel_flag"/>
+        <span class="right-label">deselect empty frames</span>
+      </div>
 
-  <div class="block">
-    <div class="row">
-      <span>Regular Expression:</span>
-      <textarea class="hostTextarea" id="fld_re" autofocus></textarea>
+      <div class="row">
+        <span>Replace To:</span>
+        <textarea class="hostTextarea" id="fld_replacer" spellcheck="false"></textarea>
+      </div>
+      <div class="row">
+        <input id="btn_replace" class="hostButton btns" type="button" value="Replace Text"/>
+        <input id="btn_selAllMatch" class="hostButton btns" type="button" value="Select All Matches"/>
+        <input id="btn_GitHub" class="hostButton btns float-right" type="button" value="GitHub"/>
+        <input id="btn_refrash" class="hostButton btns float-right" type="button" value="Refrash"/>
+        <input id="btn_reload" class="hostButton btns float-right" type="button" value="Reload"/>
+      </div>
+      <div class="row">
+        <span>Output info:</span>
+        <textarea id="fld_return" disabled spellcheck="false"></textarea>
+      </div>
     </div>
-    <div class="row">
-      <input class="reg-flags" type="checkbox" title="g" checked id="reg_flag_g"/>
-      <span class="right-label">g</span>
-      <input class="reg-flags" type="checkbox" title="m" checked id="reg_flag_m"/>
-      <span class="right-label">m</span>
-      <input class="reg-flags" type="checkbox" title="i" checked id="reg_flag_i"/>
-      <span class="right-label">i</span>
-      <input type="checkbox" title="desel_empty" id="desel_flag"/>
-      <span class="right-label">deselect empty frames</span>
-    </div>
-
-    <div class="row">
-      <span>Replace To:</span>
-      <textarea class="hostTextarea" id="fld_replacer"></textarea>
-    </div>
-    <div class="row">
-      <input id="btn_replace" class="hostButton btns" type="button" value="Replace Text"/>
-      <input id="btn_selAllMatch" class="hostButton btns" type="button" value="Select All Matches"/>
-      <input id="btn_GitHub" class="hostButton btns float-right" type="button" value="GitHub"/>
-      <input id="btn_refrash" class="hostButton btns float-right" type="button" value="Refrash"/>
-      <input id="btn_reload" class="hostButton btns float-right" type="button" value="Reload"/>
-    </div>
-    <div class="row">
-      <span>Output info:</span>
-      <textarea id="fld_return" disabled></textarea>
-    </div>
-
-  </div>
+  </form>
 </div>
 
 <script src="js/libs/CSInterface.js"></script>
 <script src="js/libs/jquery-2.0.2.min.js"></script>
+<script src="js/libs/sisyphus.js"></script>
 
 <script src="js/themeManager.js"></script>
 <script src="js/main.js"></script>
