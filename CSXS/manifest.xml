@@ -2,11 +2,11 @@
 <ExtensionManifest
     Version="4.0"
     ExtensionBundleId="com.wk.ai_re_wk"
-    ExtensionBundleVersion="1.6"
+    ExtensionBundleVersion="1.7"
     ExtensionBundleName="ai_re_wk"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ExtensionList>
-    <Extension Id="com.wk.ai_re_wk.panel" Version="1.6"/>
+    <Extension Id="com.wk.ai_re_wk.panel" Version="1.7"/>
     <Extension Id="com.wk.ai_re_wk.dialog" Version="0.1"/>
   </ExtensionList>
   <ExecutionEnvironment>
@@ -32,7 +32,7 @@
         </Lifecycle>
         <UI>
           <Type>Panel</Type>
-          <Menu>ai_re_wk 1.6</Menu>
+          <Menu>ai_re_wk 1.7</Menu>
           <Geometry>
             <Size>
               <Height>260</Height>

@@ -22,6 +22,8 @@
       })
     } ());
 
+    autosize($('#fld_re, #fld_replacer'));
+
     $("#btn_replace").click(function() {
       var elem_re       = document.getElementById("fld_re");
       var elem_replacer = document.getElementById('fld_replacer');
