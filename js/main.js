@@ -15,14 +15,22 @@
     themeManager.init();
     loadJSX("json2.js");
 
-    (function  () {
+    (function() {
       $("#form-re").sisyphus({
         excludeFields: $("#fld_return"),
-        timeout: 10
+        timeout:       10
       })
-    } ());
+    }());
 
     autosize($('#fld_re, #fld_replacer'));
+
+
+    $("#fld_re").keypress(function() {
+      csInterface.resizeContent($('body').width() + scrollbarWidth(), $('body').height() + scrollbarWidth());
+    });
+    $("#fld_replacer").keydown(function() {
+      csInterface.resizeContent($('body').width() + scrollbarWidth(), $('body').height());
+    });
 
     $("#btn_replace").click(function() {
       var elem_re       = document.getElementById("fld_re");
@@ -57,11 +65,11 @@
 
       selAllMatch(elem_re.value, elem_replacer.value, deselFlag, regFlagsStr, elem_return);
       elem_re.focus();
-    })
+    });
     $("#btn_escape").click(function() {
       var elem_re   = document.getElementById("fld_re");
       elem_re.value = _escape(elem_re.value);
-    })
+    });
 
     $("#btn_GitHub").click(function() {
       window.cep.util.openURLInDefaultBrowser("https://github.com/dumbm1/ai_re")
@@ -76,6 +84,39 @@
   }
 
   init();
+
+  function scrollbarWidth() {
+    var block = $('<div>').css({'height':'50px','width':'50px'}),
+        indicator = $('<div>').css({'height':'200px'});
+
+    $('body').append(block.append(indicator));
+    var w1 = $('div', block).innerWidth();
+    block.css('overflow-y', 'scroll');
+    var w2 = $('div', block).innerWidth();
+    $(block).remove();
+    return (w1 - w2);
+  }
+  function hasScroll(el, direction) {
+    direction = (direction === 'vertical') ? 'scrollTop' : 'scrollLeft';
+    var result = !! el[direction];
+
+    if (!result) {
+      el[direction] = 1;
+      result = !!el[direction];
+      el[direction] = 0;
+    }
+    return result;
+  }
+
+  function getClientWidth() {
+    return document.compatMode == 'CSS1Compat' && !window.opera ?
+      document.documentElement.clientWidth : document.body.clientWidth;
+  }
+
+  function getClientHeight() {
+    return document.compatMode == 'CSS1Compat' && !window.opera ?
+      document.documentElement.clientHeight : document.body.clientHeight;
+  }
 
   // Reloads extension panel
   function reloadPanel() {
@@ -131,7 +172,7 @@
    * @param {String} regStr - regular expression string
    * @param {String} replacer - replacer string
    * */
-  function selAllMatch(regStr, replacer, deselFlag, regFlagsStr,  fld_return) {
+  function selAllMatch(regStr, replacer, deselFlag, regFlagsStr, fld_return) {
 
     csInterface.evalScript(
       'selInCollect('
