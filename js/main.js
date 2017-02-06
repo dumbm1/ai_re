@@ -4,16 +4,21 @@
   'use strict';
 
   var csInterface = new CSInterface();
-
-  function loadJSX(fileName) {
-    var extensionRoot = csInterface.getSystemPath(SystemPath.EXTENSION) + "/jsx/";
-    csInterface.evalScript('$.evalFile("' + extensionRoot + fileName + '")');
-  }
+  init();
 
   function init() {
 
     themeManager.init();
     loadJSX("json2.js");
+
+    jQuery.fn.extend({
+      disableSelection: function() {
+        this.each(function() {
+          this.onselectstart = function() { return false; };
+        });
+      }
+    });
+    $("body").disableSelection();
 
     (function() {
       $("#form-re").sisyphus({
@@ -24,13 +29,25 @@
 
     autosize($('#fld_re, #fld_replacer'));
 
+    /* set the size of the window */
+    $(document).ready(function() {
+      setTimeout(function() {
+        fitWindowToContent();
+      }, 100);
+    });
 
-    $("#fld_re").keypress(function() {
-      csInterface.resizeContent($('body').width() + scrollbarWidth(), $('body').height() + scrollbarWidth());
+    $("#fld_re ,#fld_replacer").keyup(function() {
+      $("body").css({"overflow": "hidden"});
+      fitWindowToContent();
+      setTimeout(function() { $("body").css({"overflow": "visible"}); }, 100);
     });
-    $("#fld_replacer").keydown(function() {
-      csInterface.resizeContent($('body').width() + scrollbarWidth(), $('body').height());
-    });
+
+    $("#output_info_lbl").click(function() {
+      $("#fld_return").toggleClass("hiddenElem");
+      $("body").css({"overflow": "hidden"});
+      fitWindowToContent();
+      setTimeout(function() { $("body").css({"overflow": "visible"}); }, 100);
+    })
 
     $("#btn_replace").click(function() {
       var elem_re       = document.getElementById("fld_re");
@@ -46,6 +63,7 @@
       repl(elem_re.value, elem_replacer.value, regFlagsStr, elem_return);
       elem_re.focus();
     });
+
     $("#btn_selAllMatch").click(function() {
       var elem_re       = document.getElementById("fld_re");
       var elem_replacer = document.getElementById('fld_replacer');
@@ -66,10 +84,6 @@
       selAllMatch(elem_re.value, elem_replacer.value, deselFlag, regFlagsStr, elem_return);
       elem_re.focus();
     });
-    $("#btn_escape").click(function() {
-      var elem_re   = document.getElementById("fld_re");
-      elem_re.value = _escape(elem_re.value);
-    });
 
     $("#btn_GitHub").click(function() {
       window.cep.util.openURLInDefaultBrowser("https://github.com/dumbm1/ai_re")
@@ -81,13 +95,27 @@
       new CSInterface().requestOpenExtension('com.wk.ai_re_wk.dialog');
       new CSInterface().closeExtension();
     });
+
   }
 
-  init();
+  function fitWindowToContent() {
+    if (typeof csInterface.resizeContent != "undefined") {
+      var bodyVertMargin = parseInt($("body").css("marginTop")) + parseInt($("body").css("marginBottom"));
+      var bodyHorzMargin = parseInt($("body").css("marginLeft")) + parseInt($("body").css("marginRight"));
+      // console.log("Width: " + $("#extension-panel").width() + ", Height: " + Math.floor($("#extension-panel").innerHeight()));
+      csInterface.resizeContent($("#content").width() +
+        bodyHorzMargin, Math.floor($("#content").innerHeight()) + bodyVertMargin);
+    }
+  }
+
+  function loadJSX(fileName) {
+    var extensionRoot = csInterface.getSystemPath(SystemPath.EXTENSION) + "/jsx/";
+    csInterface.evalScript('$.evalFile("' + extensionRoot + fileName + '")');
+  }
 
   function scrollbarWidth() {
-    var block = $('<div>').css({'height':'50px','width':'50px'}),
-        indicator = $('<div>').css({'height':'200px'});
+    var block     = $('<div>').css({'height': '50px', 'width': '50px'}),
+        indicator = $('<div>').css({'height': '200px'});
 
     $('body').append(block.append(indicator));
     var w1 = $('div', block).innerWidth();
@@ -96,13 +124,14 @@
     $(block).remove();
     return (w1 - w2);
   }
+
   function hasScroll(el, direction) {
-    direction = (direction === 'vertical') ? 'scrollTop' : 'scrollLeft';
-    var result = !! el[direction];
+    direction  = (direction === 'vertical') ? 'scrollTop' : 'scrollLeft';
+    var result = !!el[direction];
 
     if (!result) {
       el[direction] = 1;
-      result = !!el[direction];
+      result        = !!el[direction];
       el[direction] = 0;
     }
     return result;
@@ -195,10 +224,3 @@
   }
 
 }());
-
-function _escape(text) {
-  return text.replace(/[*+?.^$|]/g, "\\$&");
-  // return text.replace (/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
-}
-
-

@@ -2,11 +2,11 @@
 <ExtensionManifest
     Version="4.0"
     ExtensionBundleId="com.wk.ai_re_wk"
-    ExtensionBundleVersion="1.7"
+    ExtensionBundleVersion="1.8"
     ExtensionBundleName="ai_re_wk"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ExtensionList>
-    <Extension Id="com.wk.ai_re_wk.panel" Version="1.7"/>
+    <Extension Id="com.wk.ai_re_wk.panel" Version="1.8"/>
     <Extension Id="com.wk.ai_re_wk.dialog" Version="0.1"/>
   </ExtensionList>
   <ExecutionEnvironment>
@@ -32,12 +32,20 @@
         </Lifecycle>
         <UI>
           <Type>Panel</Type>
-          <Menu>ai_re_wk 1.7</Menu>
+          <Menu>ai_re_wk 1.8</Menu>
           <Geometry>
             <Size>
-              <Height>260</Height>
-              <Width>390</Width>
+              <Height>240</Height>
+              <Width>370</Width>
             </Size>
+            <MinSize>
+              <Height>220</Height>
+              <Width>370</Width>
+            </MinSize>
+            <MaxSize>
+              <Height>520</Height>
+              <Width>780</Width>
+            </MaxSize>
           </Geometry>
           <Icons>
             <Icon Type="Normal">./icons/iconNormal.png</Icon>
@@ -57,7 +65,7 @@
           </CEFCommandLine>
         </Resources>
         <Lifecycle>
-          <AutoVisible>false</AutoVisible>
+          <AutoVisible>true</AutoVisible>
         </Lifecycle>
         <UI>
           <Type>ModalDialog</Type>
