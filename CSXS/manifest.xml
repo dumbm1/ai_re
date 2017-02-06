@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ExtensionManifest
     Version="4.0"
-    ExtensionBundleId="com.wk.ai_re_wk"
-    ExtensionBundleVersion="1.8"
-    ExtensionBundleName="ai_re_wk"
+    ExtensionBundleId="com.wk.ai_re"
+    ExtensionBundleVersion="1.8.1"
+    ExtensionBundleName="ai_re"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ExtensionList>
-    <Extension Id="com.wk.ai_re_wk.panel" Version="1.8"/>
-    <Extension Id="com.wk.ai_re_wk.dialog" Version="0.1"/>
+    <Extension Id="com.wk.ai_re.panel" Version="1.8.1"/>
+    <Extension Id="com.wk.ai_re.dialog" Version="0.1"/>
   </ExtensionList>
   <ExecutionEnvironment>
     <HostList>
@@ -21,7 +21,7 @@
     </RequiredRuntimeList>
   </ExecutionEnvironment>
   <DispatchInfoList>
-    <Extension Id="com.wk.ai_re_wk.panel">
+    <Extension Id="com.wk.ai_re.panel">
       <DispatchInfo>
         <Resources>
           <MainPath>./index.html</MainPath>
@@ -32,14 +32,14 @@
         </Lifecycle>
         <UI>
           <Type>Panel</Type>
-          <Menu>ai_re_wk 1.8</Menu>
+          <Menu>ai_re_wk 1.8.1</Menu>
           <Geometry>
             <Size>
               <Height>240</Height>
               <Width>370</Width>
             </Size>
             <MinSize>
-              <Height>220</Height>
+              <Height>160</Height>
               <Width>370</Width>
             </MinSize>
             <MaxSize>
@@ -57,7 +57,7 @@
         </UI>
       </DispatchInfo>
     </Extension>
-    <Extension Id="com.wk.ai_re_wk.dialog">
+    <Extension Id="com.wk.ai_re.dialog">
       <DispatchInfo>
         <Resources>
           <MainPath>./dialog.html</MainPath>
