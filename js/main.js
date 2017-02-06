@@ -9,6 +9,7 @@
   function init() {
 
     themeManager.init();
+    loadJSX("hostscript.jsx");
     loadJSX("json2.js");
 
     jQuery.fn.extend({
@@ -18,7 +19,6 @@
         });
       }
     });
-    $("body").disableSelection();
 
     (function() {
       $("#form-re").sisyphus({
@@ -29,6 +29,8 @@
 
     autosize($('#fld_re, #fld_replacer'));
 
+    $("body").disableSelection();
+
     /* set the size of the window */
     $(document).ready(function() {
       setTimeout(function() {
@@ -37,9 +39,9 @@
     });
 
     $("#fld_re ,#fld_replacer").keyup(function() {
-      $("body").css({"overflow": "hidden"});
+      // $("body").css({"overflow": "hidden"});
       fitWindowToContent();
-      setTimeout(function() { $("body").css({"overflow": "visible"}); }, 100);
+      // setTimeout(function() { $("body").css({"overflow": "visible"}); }, 100);
     });
 
     $("#output_info_lbl").click(function() {
@@ -47,7 +49,7 @@
       $("body").css({"overflow": "hidden"});
       fitWindowToContent();
       setTimeout(function() { $("body").css({"overflow": "visible"}); }, 100);
-    })
+    });
 
     $("#btn_replace").click(function() {
       var elem_re       = document.getElementById("fld_re");
@@ -92,7 +94,7 @@
     $("#btn_refrash").click(reloadPanel);
 
     $("#btn_reload").click(function() {
-      new CSInterface().requestOpenExtension('com.wk.ai_re_wk.dialog');
+      new CSInterface().requestOpenExtension('com.wk.ai_re.dialog');
       new CSInterface().closeExtension();
     });
 

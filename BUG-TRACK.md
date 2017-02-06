@@ -2,21 +2,34 @@
 tracking bugs, todo, ideas, features, refactoring, relayout 
 ===
 
- * `count`:`6`
+ * `count`:`8`
 
- * `solved`:`#1, # ,`
+ * `solved`:`#1, #6,`
 
  * `canceled`:`# ,`
 
- * `not yet solved`:`#2, #3, #4, #5, #6, `
+ * `not yet solved`:`#2, #3, #4, #5, #7, #8`
 
 ---
 
 `not yet solved`
 
-* ###### #6. Bug: try to remove scroll bars splashed when panel resizing
+* ###### #8. Feature: deselect all another objects
 
-    - when panel resizes the scroll bars is splashed on microseconds - this is annoying and wrong in principle
+    - Make this behaviour is default
+
+`not yet solved`
+
+* ###### #7. Feature: search in no selected frames variant
+
+    - All document
+    
+    - Visible unlock layers
+    
+    - Active layer
+    
+    - Select layers to search - select in panel
+
 
 `not yet solved`
 
@@ -54,6 +67,15 @@ tracking bugs, todo, ideas, features, refactoring, relayout
     
     - Add heandler to read/write and toggle class .hiddenElem 
   
+v1.8.2
+---
+
+`solved`
+
+* ###### #6. Bug: try to remove scroll bars splashed when panel resizing
+
+    - when panel resizes the scroll bars is splashed on microseconds - this is annoying and wrong in principle
+
 v1.8.1
 ---
 

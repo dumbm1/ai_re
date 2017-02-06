@@ -5,7 +5,7 @@
   function init() {
     themeManager.init();
     if (csInterface.isWindowVisible()) {
-      new CSInterface().requestOpenExtension('com.wk.ai_re_wk.panel');
+      new CSInterface().requestOpenExtension('com.wk.ai_re.panel');
       new CSInterface().closeExtension();
     }
   }

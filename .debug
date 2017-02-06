@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?> 
 <ExtensionList>
-    <Extension Id="com.wk.ai_re_wk.panel">
+    <Extension Id="com.wk.ai_re.panel">
         <HostList>
             <Host Name="ILST" Port="8095"/>
         </HostList>
