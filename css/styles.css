@@ -81,7 +81,7 @@ input[type=checkbox] {
   margin-left: 10px;
 }
 
-#fld_re, #fld_replacer, #fld_return {
+#fld_re, #fld_replacer, #fld_return, #sel_presets {
   box-sizing: border-box;
   width:      100%;
   padding:    0;

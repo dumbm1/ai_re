@@ -1,56 +1,75 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
 
-  <link rel="stylesheet" href="css/topcoat-desktop-dark.min.css"/>
-  <link id="hostStyle" rel="stylesheet" href="css/styles.css"/>
+    <link rel="stylesheet" href="css/topcoat-desktop-dark.min.css"/>
+    <link id="hostStyle" rel="stylesheet" href="css/styles.css"/>
 
-  <title>ai_re</title>
-  <style type="text/css">
-    #fld_replacer, #fld_re {
-      padding: 2px;
-    }
-  </style>
+    <title>ai_re</title>
+    <style type="text/css">
+        #fld_replacer, #fld_re {
+            padding: 2px;
+        }
+
+        .opt-bold {
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body class="hostElt main-pan">
 
 <div id="content">
-  <form id="form-re">
-    <div class="block">
-      <div class="row">
-        <span>Regular Expression:</span>
-        <textarea class="hostTextarea" id="fld_re" autofocus spellcheck="false" rows="1"></textarea>
-      </div>
-      <div class="row">
-        <input class="reg-flags" type="checkbox" title="g" checked id="reg_flag_g"/>
-        <span class="right-label">g</span>
-        <input class="reg-flags" type="checkbox" title="m" checked id="reg_flag_m"/>
-        <span class="right-label">m</span>
-        <input class="reg-flags" type="checkbox" title="i" checked id="reg_flag_i"/>
-        <span class="right-label">i</span>
-        <input type="checkbox" title="desel_empty" id="desel_flag"/>
-        <span class="right-label">deselect empty frames</span>
-      </div>
+    <form id="form-re">
+        <div class="block">
+            <div class="row">
+                <span>Regular Expression:</span>
+                <textarea class="hostTextarea" id="fld_re" autofocus spellcheck="false" rows="1"></textarea>
+            </div>
+            <div class="row">
+                <span>Presets:</span>
+                <select name="Presets" id="sel_presets" class="hostTextarea">
+                    <option value="((\({1,})?)(Е|E)[0-9]{2,4}(([a-zA-Zа-яА-Я]?)((\){1,})?)(,?))">
+                        'Е0000x', вместе с запятой и скобками (для 'noBreak')
+                    </option>
+                    <option value=" {1,}$">Пробелы в конце абзацев</option>
+                    <option value="^ {1,}">Пробелы вначале абзацев</option>
+                    <option value=" {2,}">Два и более пробелов</option>
+                    <option value="($.{1})|(\r)"><span class="opt-bold"></span>¶ (энтер или абзац)</option>
+                    <option value="\x03"><span class="opt-bold">¬</span> (&lt;Shift&gt; + &lt;Enter&gt; или 'ETX')
+                    </option>
+                </select>
+            </div>
+            <div class="row">
+                <input class="reg-flags" type="checkbox" title="g" checked id="reg_flag_g"/>
+                <label for="reg_flag_g" class="right-label">g</label>
+                <input class="reg-flags" type="checkbox" title="m" checked id="reg_flag_m"/>
+                <label for="reg_flag_m" class="right-label">m</label>
+                <input class="reg-flags" type="checkbox" title="i" checked id="reg_flag_i"/>
+                <label for="reg_flag_i" class="right-label">i</label>
+                <input type="checkbox" title="desel_empty" id="desel_flag"/>
+                <label for="desel_flag" class="right-label">deselect empty frames</label>
+                <input class="hostButton" type="button" title="Use preset" id="btn_presets" value="Use preset"/>
+            </div>
 
-      <div class="row">
-        <span>Replace To:</span>
-        <textarea class="hostTextarea" id="fld_replacer" spellcheck="false" rows="1"></textarea>
-      </div>
-      <div class="row">
-        <input id="btn_replace" class="hostButton btns" type="button" value="Replace Text"/>
-        <input id="btn_selAllMatch" class="hostButton btns" type="button" value="Select All Matches"/>
-        <input id="btn_GitHub" class="hostButton btns float-right" type="button" value="GitHub"/>
-        <input id="btn_refrash" class="hostButton btns float-right" type="button" value="Refrash"/>
-        <input id="btn_reload" class="hostButton btns float-right" type="button" value="Reload"/>
-      </div>
-      <div id="row_output" class="row">
-        <span id="output_info_lbl">Output info:</span>
-        <textarea id="fld_return" disabled spellcheck="false"></textarea>
-      </div>
-    </div>
-  </form>
+            <div class="row">
+                <span>Replace To:</span>
+                <textarea class="hostTextarea" id="fld_replacer" spellcheck="false" rows="1"></textarea>
+            </div>
+            <div class="row">
+                <input id="btn_replace" class="hostButton btns" type="button" value="Replace Text"/>
+                <input id="btn_selAllMatch" class="hostButton btns" type="button" value="Select All Matches"/>
+                <input id="btn_GitHub" class="hostButton btns float-right" type="button" value="GitHub"/>
+                <input id="btn_refrash" class="hostButton btns float-right" type="button" value="Refrash"/>
+                <input id="btn_reload" class="hostButton btns float-right" type="button" value="Reload"/>
+            </div>
+            <div id="row_output" class="row">
+                <span id="output_info_lbl">Output info:</span>
+                <textarea id="fld_return" disabled spellcheck="false" class="hiddenElem"></textarea>
+            </div>
+        </div>
+    </form>
 </div>
 
 <script src="js/libs/CSInterface.js"></script>

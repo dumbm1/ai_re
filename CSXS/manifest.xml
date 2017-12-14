@@ -2,12 +2,12 @@
 <ExtensionManifest
     Version="4.0"
     ExtensionBundleId="com.wk.ai_re"
-    ExtensionBundleVersion="1.8.2"
+    ExtensionBundleVersion="1.9.0"
     ExtensionBundleName="ai_re"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ExtensionList>
-    <Extension Id="com.wk.ai_re.panel" Version="1.8.2"/>
-    <Extension Id="com.wk.ai_re.dialog" Version="0.1"/>
+    <Extension Id="com.wk.ai_re.panel" Version="1.9.0"/>
+    <Extension Id="com.wk.ai_re.dialog" Version="0.1.0"/>
   </ExtensionList>
   <ExecutionEnvironment>
     <HostList>
@@ -32,7 +32,7 @@
         </Lifecycle>
         <UI>
           <Type>Panel</Type>
-          <Menu>wk.ai_re 1.8.2</Menu>
+          <Menu>wk.ai_re 1.9.0</Menu>
           <Geometry>
             <Size>
               <Height>240</Height>
@@ -69,7 +69,7 @@
         </Lifecycle>
         <UI>
           <Type>ModalDialog</Type>
-          <Menu>wk.ai_re reload 0.1</Menu>
+          <Menu>wk.ai_re reload 0.1.0</Menu>
           <Geometry>
             <Size>
               <Height>1</Height>
